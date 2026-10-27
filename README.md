@@ -1,5 +1,7 @@
 # Aivanta — AI Business Value & ROI Intelligence
 
+[![CI](https://github.com/asanaluisa/aivanta/actions/workflows/ci.yml/badge.svg)](https://github.com/asanaluisa/aivanta/actions/workflows/ci.yml)
+
 **English** · [Español](README.es.md)
 
 > **Are we getting more value from AI than we are spending on it?**
@@ -121,10 +123,11 @@ Vendor adapters follow each provider's publicly documented field names as unders
 |---|---|---|
 | Core engine (pricing, ROI, statistics, comparison, recommendations, ingestion, synthetic data, reports, API payloads) | 106 pytest tests incl. reconciliation of every dashboard metric with the raw records | **Yes** — all pass |
 | Database schema | `migrations/sql/0001_initial.sql` | **Yes** — applied to PostgreSQL 16 |
-| Web API (FastAPI + SQLAlchemy + Alembic) | `tests/api/` — auth, RBAC, organisation isolation, ingestion idempotency, reports, snapshots, audit, and an ORM-vs-migration schema diff | **No** — the build sandbox had no access to the Python package index. Run `pytest` with `AIVANTA_TEST_DATABASE_URL` set (CI does this). |
+| Web API (FastAPI + SQLAlchemy + Alembic) | `tests/api/` — auth, RBAC, organisation isolation, ingestion idempotency, reports, snapshots, audit, and an ORM-vs-migration schema diff | **Yes, in CI** — GitHub Actions against a PostgreSQL 16 service |
 | Frontend logic | 14 `node:test` tests: EN/ES key parity and placeholders, terminology, every backend code translated, number/date/currency formatting, filter encoding | **Yes** — all pass |
 | Frontend UI | every page rendered in headless Chromium against real API payloads, EN and ES, desktop and mobile (screenshots above) | **Yes** — via a harness with mocked transport |
-| `next build`, `tsc` with real type packages, `docker compose up` | CI workflow in `.github/workflows/ci.yml` | **No** — same reason; run them locally or in CI |
+| `next build`, `tsc --noEmit`, `ruff` | CI workflow in `.github/workflows/ci.yml` | **Yes, in CI** |
+| `docker compose up` | `docker-compose.yml` | not run automatically — run locally |
 
 ```bash
 make test                # backend + frontend tests

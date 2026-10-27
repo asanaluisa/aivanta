@@ -1,5 +1,7 @@
 # Aivanta — Inteligencia sobre el valor y el retorno de la IA
 
+[![CI](https://github.com/asanaluisa/aivanta/actions/workflows/ci.yml/badge.svg)](https://github.com/asanaluisa/aivanta/actions/workflows/ci.yml)
+
 [English](README.md) · **Español**
 
 > **¿Obtenemos de la IA más valor del que gastamos en ella?**
@@ -121,10 +123,11 @@ Los adaptadores siguen los nombres de campo publicados por cada proveedor tal co
 |---|---|---|
 | Motor (precios, ROI, estadística, comparación, recomendaciones, ingesta, datos sintéticos, informes, respuestas de la API) | 106 tests de pytest, incluida la conciliación de cada métrica del panel con los registros de origen | **Sí**, todos pasan |
 | Esquema de base de datos | `migrations/sql/0001_initial.sql` | **Sí**, aplicado sobre PostgreSQL 16 |
-| API web (FastAPI + SQLAlchemy + Alembic) | `tests/api/`: autenticación, roles, aislamiento entre organizaciones, idempotencia de la ingesta, informes, instantáneas, auditoría y comparación del ORM con la migración | **No**: el entorno de construcción no tenía acceso al índice de paquetes de Python. Ejecuta `pytest` con `AIVANTA_TEST_DATABASE_URL` (la integración continua lo hace). |
+| API web (FastAPI + SQLAlchemy + Alembic) | `tests/api/`: autenticación, roles, aislamiento entre organizaciones, idempotencia de la ingesta, informes, instantáneas, auditoría y comparación del ORM con la migración | **Sí, en CI**: GitHub Actions con un servicio PostgreSQL 16 |
 | Lógica del frontend | 14 tests con `node:test`: paridad EN/ES, marcadores, terminología, traducción de todos los códigos del backend, formato de números, fechas y moneda, codificación de filtros | **Sí**, todos pasan |
 | Interfaz | todas las páginas renderizadas en Chromium sin interfaz con respuestas reales de la API, en EN y ES, escritorio y móvil | **Sí**, mediante un entorno con transporte simulado |
-| `next build`, `tsc` con los paquetes de tipos reales, `docker compose up` | flujo de CI en `.github/workflows/ci.yml` | **No**, por el mismo motivo; ejecútalos en local o en CI |
+| `next build`, `tsc --noEmit`, `ruff` | flujo de CI en `.github/workflows/ci.yml` | **Sí, en CI** |
+| `docker compose up` | `docker-compose.yml` | no se ejecuta automáticamente; pruébalo en local |
 
 ## Decisiones de diseño y limitaciones
 - **Gráficos** con `d3-scale` y `d3-shape` renderizados por React en lugar de Recharts: misma función (librería consolidada), control total de la accesibilidad (vista de tabla en cada gráfico, nada codificado solo por color) y una paleta validada para daltonismo.
