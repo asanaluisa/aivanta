@@ -1,0 +1,7 @@
+{
+  "_comment": "Maps vendor identifiers to department and use case. Anything not listed stays unallocated.",
+  "api_key:key_sales_crm": {"department_id": "sales", "use_case_id": "sales_outreach"},
+  "api_key:apikey_support_bot": {"department_id": "customer_support", "use_case_id": "support_triage"},
+  "workspace:wrkspc_engineering": {"department_id": "engineering", "use_case_id": null},
+  "label:marketing_content": {"department_id": "marketing", "use_case_id": "marketing_content"}
+}

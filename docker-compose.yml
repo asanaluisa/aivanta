@@ -1,0 +1,45 @@
+# Aivanta — full stack: PostgreSQL, FastAPI backend, Next.js frontend.
+#   cp .env.example .env && docker compose up --build
+# Frontend: http://localhost:3000   API docs: http://localhost:8000/docs
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-aivanta}
+      POSTGRES_USER: ${POSTGRES_USER:-aivanta}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-aivanta}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-aivanta} -d ${POSTGRES_DB:-aivanta}"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file: .env
+    environment:
+      AIVANTA_DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-aivanta}:${POSTGRES_PASSWORD:-aivanta}@db:5432/${POSTGRES_DB:-aivanta}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+volumes:
+  pgdata:

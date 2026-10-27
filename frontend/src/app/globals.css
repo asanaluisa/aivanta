@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/*
+ * Aivanta design tokens. Restrained palette: warm neutrals, one navy brand ink,
+ * and a validated categorical series order for charts (blue, orange, aqua,
+ * yellow, magenta, green, violet, red). Status colours are reserved and always
+ * ship with a text label.
+ */
+/* "static" keeps every token as a CSS variable: charts read them via var(). */
+@theme static {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --color-page: #f6f6f3;
+  --color-surface: #fcfcfb;
+  --color-subtle: #f0efec;
+  --color-ink: #0b0b0b;
+  --color-ink-2: #52514e;
+  --color-muted: #6b6a65;
+  --color-line: #e1e0d9;
+  --color-axis: #c3c2b7;
+
+  --color-brand: #12233d;
+  --color-brand-2: #213a5e;
+  --color-brand-soft: #e8edf5;
+  --color-accent: #2a78d6;
+
+  --color-s1: #2a78d6;
+  --color-s2: #eb6834;
+  --color-s3: #1baf7a;
+  --color-s4: #eda100;
+  --color-s5: #e87ba4;
+  --color-s6: #008300;
+  --color-s7: #6250d6;
+  --color-s8: #e34948;
+
+  --color-good: #0ca30c;
+  --color-good-ink: #006300;
+  --color-good-soft: #e6f4e6;
+  --color-warning: #fab219;
+  --color-warning-ink: #7a5000;
+  --color-warning-soft: #fdf3dc;
+  --color-serious: #ec835a;
+  --color-serious-ink: #9c3f17;
+  --color-serious-soft: #fbe9e1;
+  --color-critical: #d03b3b;
+  --color-critical-ink: #a82a2a;
+  --color-critical-soft: #f9e3e3;
+  --color-info-soft: #e8f0fb;
+}
+
+@layer base {
+  html {
+    color: var(--color-ink);
+    background: var(--color-page);
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-page);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,5768 @@
+{
+ "meta": {
+  "organization": "org_demo",
+  "currency": "EUR",
+  "synthetic": true,
+  "period": {
+   "start": "2026-07-03",
+   "end": "2026-09-30"
+  },
+  "departments": [
+   {
+    "id": "engineering",
+    "name_key": "department.engineering",
+    "loaded_hourly_rate": 75.0
+   },
+   {
+    "id": "customer_support",
+    "name_key": "department.customer_support",
+    "loaded_hourly_rate": 38.0
+   },
+   {
+    "id": "sales",
+    "name_key": "department.sales",
+    "loaded_hourly_rate": 55.0
+   },
+   {
+    "id": "marketing",
+    "name_key": "department.marketing",
+    "loaded_hourly_rate": 50.0
+   },
+   {
+    "id": "finance_operations",
+    "name_key": "department.finance_operations",
+    "loaded_hourly_rate": 48.0
+   }
+  ],
+  "use_cases": [
+   {
+    "id": "support_triage",
+    "name_key": "use_case.support_triage",
+    "department": "customer_support"
+   },
+   {
+    "id": "code_review",
+    "name_key": "use_case.code_review",
+    "department": "engineering"
+   },
+   {
+    "id": "sales_outreach",
+    "name_key": "use_case.sales_outreach",
+    "department": "sales"
+   },
+   {
+    "id": "marketing_content",
+    "name_key": "use_case.marketing_content",
+    "department": "marketing"
+   },
+   {
+    "id": "invoice_matching",
+    "name_key": "use_case.invoice_matching",
+    "department": "finance_operations"
+   }
+  ],
+  "providers": [
+   "anthropic",
+   "google",
+   "openai"
+  ],
+  "models": [
+   {
+    "provider": "openai",
+    "model": "gpt-demo-large",
+    "tier": "frontier",
+    "effective_from": "2026-01-01",
+    "input_per_mtok": 5.0,
+    "output_per_mtok": 15.0,
+    "cached_input_per_mtok": 0.5
+   },
+   {
+    "provider": "openai",
+    "model": "gpt-demo-large",
+    "tier": "frontier",
+    "effective_from": "2026-08-15",
+    "input_per_mtok": 4.0,
+    "output_per_mtok": 12.0,
+    "cached_input_per_mtok": 0.4
+   },
+   {
+    "provider": "openai",
+    "model": "gpt-demo-mini",
+    "tier": "economy",
+    "effective_from": "2026-01-01",
+    "input_per_mtok": 0.3,
+    "output_per_mtok": 1.2,
+    "cached_input_per_mtok": 0.03
+   },
+   {
+    "provider": "anthropic",
+    "model": "claude-demo-advanced",
+    "tier": "standard",
+    "effective_from": "2026-01-01",
+    "input_per_mtok": 3.0,
+    "output_per_mtok": 15.0,
+    "cached_input_per_mtok": 0.3
+   },
+   {
+    "provider": "anthropic",
+    "model": "claude-demo-compact",
+    "tier": "economy",
+    "effective_from": "2026-01-01",
+    "input_per_mtok": 0.8,
+    "output_per_mtok": 4.0,
+    "cached_input_per_mtok": 0.08
+   },
+   {
+    "provider": "google",
+    "model": "gemini-demo-pro",
+    "tier": "standard",
+    "effective_from": "2026-01-01",
+    "input_per_mtok": 2.5,
+    "output_per_mtok": 10.0,
+    "cached_input_per_mtok": 0.25
+   },
+   {
+    "provider": "google",
+    "model": "gemini-demo-flash",
+    "tier": "economy",
+    "effective_from": "2026-01-01",
+    "input_per_mtok": 0.3,
+    "output_per_mtok": 2.5,
+    "cached_input_per_mtok": 0.03
+   }
+  ],
+  "assumptions": {
+   "min_sample_size": 30,
+   "min_measurement_days": 14,
+   "conservative_benefit_haircut": 0.3,
+   "conservative_cost_contingency": 0.1,
+   "optimistic_estimated_benefit_share": 0.5,
+   "quality_tolerance": 0.03,
+   "budget_warning_ratio": 0.8,
+   "review_erosion_ratio": 0.7,
+   "spend_growth_alert_ratio": 0.25,
+   "anomaly_sigma": 3.0
+  },
+  "ingestion_formats": [
+   "aivanta_csv",
+   "openai",
+   "anthropic",
+   "google"
+  ],
+  "live_sync": {
+   "openai": "not_implemented",
+   "anthropic": "not_implemented",
+   "google": "not_implemented"
+  }
+ },
+ "dashboard": {
+  "overview": {
+   "synthetic": true,
+   "currency": "EUR",
+   "period": {
+    "start": "2026-07-03",
+    "end": "2026-09-30",
+    "days": 90
+   },
+   "roi_applicable": true,
+   "roi_status": "ok",
+   "roi_reasons": [
+    "partial_evidence"
+   ],
+   "insufficient_use_cases": [
+    "invoice_matching"
+   ],
+   "kpis": {
+    "ai_spend": {
+     "value": 8658.02,
+     "basis": "measured",
+     "definition_key": "metric.ai_spend",
+     "unit": "currency"
+    },
+    "total_ai_cost": {
+     "value": 133605.57,
+     "basis": "measured",
+     "definition_key": "metric.total_ai_cost",
+     "unit": "currency"
+    },
+    "input_tokens": {
+     "value": 2844646673,
+     "basis": "measured",
+     "definition_key": "metric.input_tokens",
+     "unit": "count"
+    },
+    "output_tokens": {
+     "value": 113614759,
+     "basis": "measured",
+     "definition_key": "metric.output_tokens",
+     "unit": "count"
+    },
+    "cached_input_tokens": {
+     "value": 997059048,
+     "basis": "measured",
+     "definition_key": "metric.cached_input_tokens",
+     "unit": "count"
+    },
+    "requests": {
+     "value": 58980,
+     "basis": "measured",
+     "definition_key": "metric.requests",
+     "unit": "count"
+    },
+    "active_users": {
+     "value": 56,
+     "basis": "measured",
+     "definition_key": "metric.active_users",
+     "unit": "count"
+    },
+    "active_departments": {
+     "value": 5,
+     "basis": "measured",
+     "definition_key": "metric.active_departments",
+     "unit": "count"
+    },
+    "error_rate": {
+     "value": 0.0294,
+     "basis": "measured",
+     "definition_key": "metric.error_rate",
+     "unit": "ratio"
+    },
+    "gross_benefit": {
+     "value": 98338.71,
+     "basis": "evidence_backed",
+     "definition_key": "metric.gross_benefit",
+     "unit": "currency"
+    },
+    "estimated_total_value": {
+     "value": 304874.71,
+     "basis": "estimated",
+     "definition_key": "metric.estimated_total_value",
+     "unit": "currency"
+    },
+    "net_benefit": {
+     "value": -35266.86,
+     "basis": "evidence_backed",
+     "definition_key": "metric.net_benefit",
+     "unit": "currency"
+    },
+    "roi_pct": {
+     "value": -26.4,
+     "basis": "evidence_backed",
+     "definition_key": "metric.roi",
+     "unit": "percent"
+    },
+    "verified_savings": {
+     "value": 45500.0,
+     "basis": "evidence_backed",
+     "definition_key": "metric.verified_savings",
+     "unit": "currency"
+    },
+    "hours_saved": {
+     "value": 3065.7,
+     "basis": "measured",
+     "definition_key": "metric.hours_saved",
+     "unit": "hours",
+     "net": 2364.9
+    },
+    "cost_per_successful_task": {
+     "value": 9.83,
+     "basis": "measured",
+     "definition_key": "metric.cost_per_successful_task",
+     "unit": "currency"
+    }
+   },
+   "roi": {
+    "status": "ok",
+    "reasons": [
+     "partial_evidence"
+    ],
+    "period_days": 90,
+    "costs": {
+     "model_usage": 8658.02,
+     "subscription": 27799.03,
+     "infrastructure": 6458.06,
+     "implementation": 51000.0,
+     "maintenance": 2641.94,
+     "human_review": 21353.09,
+     "rework": 15695.42,
+     "other_operating": 0.0,
+     "total": 133605.57
+    },
+    "one_off_cost": 51000.0,
+    "recurring_cost": 82605.57,
+    "benefits": {
+     "verified_savings": 45500.0,
+     "supported_contribution": 4403.23,
+     "supported_cost_avoidance": 48435.48,
+     "verified_component": 45500.0,
+     "supported_component": 52838.71,
+     "gross": 98338.71,
+     "estimated_excluded": 44032.26,
+     "counted": [
+      {
+       "id": "ben_004",
+       "use_case": "code_review",
+       "category": "financial_savings",
+       "amount": 8887.1,
+       "verification_status": "verified",
+       "evidence_key": "code_review:contractor_hours:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.9,
+       "source": "Contractor invoices"
+      },
+      {
+       "id": "ben_012",
+       "use_case": "code_review",
+       "category": "financial_savings",
+       "amount": 9500.0,
+       "verification_status": "verified",
+       "evidence_key": "code_review:contractor_hours:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.9,
+       "source": "Contractor invoices"
+      },
+      {
+       "id": "ben_020",
+       "use_case": "code_review",
+       "category": "financial_savings",
+       "amount": 9500.0,
+       "verification_status": "verified",
+       "evidence_key": "code_review:contractor_hours:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.9,
+       "source": "Contractor invoices"
+      },
+      {
+       "id": "ben_007",
+       "use_case": "marketing_content",
+       "category": "cost_avoidance",
+       "amount": 2338.71,
+       "verification_status": "supported",
+       "evidence_key": "marketing_content:freelance:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.6,
+       "source": "Purchase orders vs. plan"
+      },
+      {
+       "id": "ben_015",
+       "use_case": "marketing_content",
+       "category": "cost_avoidance",
+       "amount": 2500.0,
+       "verification_status": "supported",
+       "evidence_key": "marketing_content:freelance:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.6,
+       "source": "Purchase orders vs. plan"
+      },
+      {
+       "id": "ben_023",
+       "use_case": "marketing_content",
+       "category": "cost_avoidance",
+       "amount": 2500.0,
+       "verification_status": "supported",
+       "evidence_key": "marketing_content:freelance:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.6,
+       "source": "Purchase orders vs. plan"
+      },
+      {
+       "id": "ben_005",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 1403.23,
+       "verification_status": "supported",
+       "evidence_key": "sales_outreach:holdout_margin:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.6,
+       "source": "Holdout reps, gross margin"
+      },
+      {
+       "id": "ben_013",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 1500.0,
+       "verification_status": "supported",
+       "evidence_key": "sales_outreach:holdout_margin:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.6,
+       "source": "Holdout reps, gross margin"
+      },
+      {
+       "id": "ben_021",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 1500.0,
+       "verification_status": "supported",
+       "evidence_key": "sales_outreach:holdout_margin:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.6,
+       "source": "Holdout reps, gross margin"
+      },
+      {
+       "id": "ben_001",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 5612.9,
+       "verification_status": "verified",
+       "evidence_key": "support_triage:bpo_invoices:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.95,
+       "source": "AP ledger, vendor BPO-01"
+      },
+      {
+       "id": "ben_009",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 6000.0,
+       "verification_status": "verified",
+       "evidence_key": "support_triage:bpo_invoices:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.95,
+       "source": "AP ledger, vendor BPO-01"
+      },
+      {
+       "id": "ben_017",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 6000.0,
+       "verification_status": "verified",
+       "evidence_key": "support_triage:bpo_invoices:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.95,
+       "source": "AP ledger, vendor BPO-01"
+      },
+      {
+       "id": "ben_002",
+       "use_case": "support_triage",
+       "category": "cost_avoidance",
+       "amount": 13096.77,
+       "verification_status": "supported",
+       "evidence_key": "support_triage:overflow_capacity:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.75,
+       "source": "RCT deflection × contract rate"
+      },
+      {
+       "id": "ben_010",
+       "use_case": "support_triage",
+       "category": "cost_avoidance",
+       "amount": 14000.0,
+       "verification_status": "supported",
+       "evidence_key": "support_triage:overflow_capacity:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.75,
+       "source": "RCT deflection × contract rate"
+      },
+      {
+       "id": "ben_018",
+       "use_case": "support_triage",
+       "category": "cost_avoidance",
+       "amount": 14000.0,
+       "verification_status": "supported",
+       "evidence_key": "support_triage:overflow_capacity:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.75,
+       "source": "RCT deflection × contract rate"
+      }
+     ],
+     "excluded": [
+      {
+       "id": "ben_003",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 14032.26,
+       "verification_status": "estimated",
+       "evidence_key": "support_triage:overflow_capacity:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.4,
+       "source": "Team lead estimate",
+       "reason": "duplicate_evidence"
+      },
+      {
+       "id": "ben_011",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 15000.0,
+       "verification_status": "estimated",
+       "evidence_key": "support_triage:overflow_capacity:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.4,
+       "source": "Team lead estimate",
+       "reason": "duplicate_evidence"
+      },
+      {
+       "id": "ben_019",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 15000.0,
+       "verification_status": "estimated",
+       "evidence_key": "support_triage:overflow_capacity:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.4,
+       "source": "Team lead estimate",
+       "reason": "duplicate_evidence"
+      },
+      {
+       "id": "ben_008",
+       "use_case": "invoice_matching",
+       "category": "financial_savings",
+       "amount": 2806.45,
+       "verification_status": "estimated",
+       "evidence_key": "invoice_matching:fte_time:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.3,
+       "source": "Pilot owner estimate",
+       "reason": "estimate_only"
+      },
+      {
+       "id": "ben_016",
+       "use_case": "invoice_matching",
+       "category": "financial_savings",
+       "amount": 3000.0,
+       "verification_status": "estimated",
+       "evidence_key": "invoice_matching:fte_time:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.3,
+       "source": "Pilot owner estimate",
+       "reason": "estimate_only"
+      },
+      {
+       "id": "ben_024",
+       "use_case": "invoice_matching",
+       "category": "financial_savings",
+       "amount": 3000.0,
+       "verification_status": "estimated",
+       "evidence_key": "invoice_matching:fte_time:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.3,
+       "source": "Pilot owner estimate",
+       "reason": "estimate_only"
+      },
+      {
+       "id": "ben_006",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 11225.81,
+       "verification_status": "unverified",
+       "evidence_key": "sales_outreach:pipeline_influence:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.2,
+       "source": "Vendor dashboard 'influenced pipeline'",
+       "reason": "unverified"
+      },
+      {
+       "id": "ben_014",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 12000.0,
+       "verification_status": "unverified",
+       "evidence_key": "sales_outreach:pipeline_influence:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.2,
+       "source": "Vendor dashboard 'influenced pipeline'",
+       "reason": "unverified"
+      },
+      {
+       "id": "ben_022",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 12000.0,
+       "verification_status": "unverified",
+       "evidence_key": "sales_outreach:pipeline_influence:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.2,
+       "source": "Vendor dashboard 'influenced pipeline'",
+       "reason": "unverified"
+      }
+     ]
+    },
+    "gross_benefit": 98338.71,
+    "net_benefit": -35266.86,
+    "roi_pct": -26.4,
+    "benefit_cost_ratio": 0.74,
+    "cost_per_successful_task": 9.83,
+    "successful_tasks": 13593,
+    "break_even_tasks": 22701.0,
+    "payback_months": 9.6,
+    "hours": {
+     "gross": 3065.7,
+     "net": 2364.9,
+     "baseline_source": "mixed",
+     "baseline_minutes_per_task": null,
+     "ai_minutes_per_task": null
+    },
+    "estimated_time_value": 162503.74,
+    "scenarios": {
+     "conservative": {
+      "name": "conservative",
+      "gross_benefit": 82487.1,
+      "total_cost": 146966.12,
+      "net_benefit": -64479.03,
+      "roi_pct": -43.9,
+      "includes_estimates": false
+     },
+     "expected": {
+      "name": "expected",
+      "gross_benefit": 98338.71,
+      "total_cost": 133605.57,
+      "net_benefit": -35266.86,
+      "roi_pct": -26.4,
+      "includes_estimates": false
+     },
+     "optimistic": {
+      "name": "optimistic",
+      "gross_benefit": 201606.71,
+      "total_cost": 133605.57,
+      "net_benefit": 68001.14,
+      "roi_pct": 50.9,
+      "includes_estimates": true
+     }
+    }
+   }
+  },
+  "trend": {
+   "rows": [
+    {
+     "date": "2026-07-03",
+     "spend": 71.52,
+     "requests": 505,
+     "tokens": 22250138,
+     "active_users": 8,
+     "errors": 2
+    },
+    {
+     "date": "2026-07-04",
+     "spend": 6.27,
+     "requests": 57,
+     "tokens": 2159722,
+     "active_users": 7,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-05",
+     "spend": 16.75,
+     "requests": 108,
+     "tokens": 5967843,
+     "active_users": 8,
+     "errors": 0
+    },
+    {
+     "date": "2026-07-06",
+     "spend": 70.81,
+     "requests": 472,
+     "tokens": 22570575,
+     "active_users": 11,
+     "errors": 6
+    },
+    {
+     "date": "2026-07-07",
+     "spend": 73.05,
+     "requests": 552,
+     "tokens": 25275814,
+     "active_users": 11,
+     "errors": 6
+    },
+    {
+     "date": "2026-07-08",
+     "spend": 87.11,
+     "requests": 566,
+     "tokens": 29083030,
+     "active_users": 11,
+     "errors": 7
+    },
+    {
+     "date": "2026-07-09",
+     "spend": 86.38,
+     "requests": 561,
+     "tokens": 26932106,
+     "active_users": 11,
+     "errors": 3
+    },
+    {
+     "date": "2026-07-10",
+     "spend": 89.75,
+     "requests": 546,
+     "tokens": 28016196,
+     "active_users": 13,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-11",
+     "spend": 19.19,
+     "requests": 131,
+     "tokens": 7166845,
+     "active_users": 14,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-12",
+     "spend": 10.42,
+     "requests": 76,
+     "tokens": 3371086,
+     "active_users": 14,
+     "errors": 0
+    },
+    {
+     "date": "2026-07-13",
+     "spend": 96.94,
+     "requests": 616,
+     "tokens": 31932447,
+     "active_users": 18,
+     "errors": 4
+    },
+    {
+     "date": "2026-07-14",
+     "spend": 100.62,
+     "requests": 678,
+     "tokens": 32121132,
+     "active_users": 20,
+     "errors": 2
+    },
+    {
+     "date": "2026-07-15",
+     "spend": 90.86,
+     "requests": 598,
+     "tokens": 29876770,
+     "active_users": 21,
+     "errors": 3
+    },
+    {
+     "date": "2026-07-16",
+     "spend": 111.57,
+     "requests": 688,
+     "tokens": 35393846,
+     "active_users": 23,
+     "errors": 6
+    },
+    {
+     "date": "2026-07-17",
+     "spend": 85.32,
+     "requests": 559,
+     "tokens": 25355176,
+     "active_users": 24,
+     "errors": 2
+    },
+    {
+     "date": "2026-07-18",
+     "spend": 17.77,
+     "requests": 129,
+     "tokens": 5268641,
+     "active_users": 20,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-19",
+     "spend": 25.31,
+     "requests": 152,
+     "tokens": 8920062,
+     "active_users": 20,
+     "errors": 0
+    },
+    {
+     "date": "2026-07-20",
+     "spend": 109.9,
+     "requests": 735,
+     "tokens": 34409027,
+     "active_users": 25,
+     "errors": 5
+    },
+    {
+     "date": "2026-07-21",
+     "spend": 85.39,
+     "requests": 615,
+     "tokens": 26402778,
+     "active_users": 24,
+     "errors": 4
+    },
+    {
+     "date": "2026-07-22",
+     "spend": 108.71,
+     "requests": 676,
+     "tokens": 36114573,
+     "active_users": 25,
+     "errors": 4
+    },
+    {
+     "date": "2026-07-23",
+     "spend": 88.34,
+     "requests": 637,
+     "tokens": 28355171,
+     "active_users": 25,
+     "errors": 6
+    },
+    {
+     "date": "2026-07-24",
+     "spend": 101.85,
+     "requests": 702,
+     "tokens": 32106489,
+     "active_users": 29,
+     "errors": 3
+    },
+    {
+     "date": "2026-07-25",
+     "spend": 28.05,
+     "requests": 169,
+     "tokens": 8909158,
+     "active_users": 24,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-26",
+     "spend": 18.53,
+     "requests": 124,
+     "tokens": 5881328,
+     "active_users": 27,
+     "errors": 2
+    },
+    {
+     "date": "2026-07-27",
+     "spend": 84.25,
+     "requests": 634,
+     "tokens": 30304618,
+     "active_users": 30,
+     "errors": 3
+    },
+    {
+     "date": "2026-07-28",
+     "spend": 113.16,
+     "requests": 790,
+     "tokens": 36532355,
+     "active_users": 30,
+     "errors": 2
+    },
+    {
+     "date": "2026-07-29",
+     "spend": 90.48,
+     "requests": 653,
+     "tokens": 29560962,
+     "active_users": 31,
+     "errors": 3
+    },
+    {
+     "date": "2026-07-30",
+     "spend": 109.75,
+     "requests": 730,
+     "tokens": 35165597,
+     "active_users": 33,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-31",
+     "spend": 112.89,
+     "requests": 731,
+     "tokens": 34906987,
+     "active_users": 33,
+     "errors": 2
+    },
+    {
+     "date": "2026-08-01",
+     "spend": 27.92,
+     "requests": 182,
+     "tokens": 9880460,
+     "active_users": 24,
+     "errors": 0
+    },
+    {
+     "date": "2026-08-02",
+     "spend": 19.41,
+     "requests": 168,
+     "tokens": 6822384,
+     "active_users": 26,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-03",
+     "spend": 110.89,
+     "requests": 746,
+     "tokens": 35943020,
+     "active_users": 33,
+     "errors": 5
+    },
+    {
+     "date": "2026-08-04",
+     "spend": 118.6,
+     "requests": 827,
+     "tokens": 38181909,
+     "active_users": 32,
+     "errors": 2
+    },
+    {
+     "date": "2026-08-05",
+     "spend": 120.97,
+     "requests": 819,
+     "tokens": 41276248,
+     "active_users": 34,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-06",
+     "spend": 102.78,
+     "requests": 761,
+     "tokens": 34575690,
+     "active_users": 34,
+     "errors": 7
+    },
+    {
+     "date": "2026-08-07",
+     "spend": 114.08,
+     "requests": 856,
+     "tokens": 36879258,
+     "active_users": 34,
+     "errors": 5
+    },
+    {
+     "date": "2026-08-08",
+     "spend": 28.71,
+     "requests": 216,
+     "tokens": 10396650,
+     "active_users": 31,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-09",
+     "spend": 17.24,
+     "requests": 143,
+     "tokens": 5930312,
+     "active_users": 30,
+     "errors": 0
+    },
+    {
+     "date": "2026-08-10",
+     "spend": 126.52,
+     "requests": 875,
+     "tokens": 40378636,
+     "active_users": 35,
+     "errors": 3
+    },
+    {
+     "date": "2026-08-11",
+     "spend": 138.35,
+     "requests": 888,
+     "tokens": 44341914,
+     "active_users": 36,
+     "errors": 6
+    },
+    {
+     "date": "2026-08-12",
+     "spend": 117.0,
+     "requests": 849,
+     "tokens": 37977902,
+     "active_users": 37,
+     "errors": 10
+    },
+    {
+     "date": "2026-08-13",
+     "spend": 137.78,
+     "requests": 890,
+     "tokens": 46920189,
+     "active_users": 37,
+     "errors": 3
+    },
+    {
+     "date": "2026-08-14",
+     "spend": 106.53,
+     "requests": 756,
+     "tokens": 35949330,
+     "active_users": 37,
+     "errors": 3
+    },
+    {
+     "date": "2026-08-15",
+     "spend": 28.96,
+     "requests": 207,
+     "tokens": 11432846,
+     "active_users": 34,
+     "errors": 3
+    },
+    {
+     "date": "2026-08-16",
+     "spend": 25.21,
+     "requests": 190,
+     "tokens": 9088092,
+     "active_users": 33,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-17",
+     "spend": 120.91,
+     "requests": 900,
+     "tokens": 44714919,
+     "active_users": 41,
+     "errors": 3
+    },
+    {
+     "date": "2026-08-18",
+     "spend": 102.3,
+     "requests": 783,
+     "tokens": 38491143,
+     "active_users": 41,
+     "errors": 4
+    },
+    {
+     "date": "2026-08-19",
+     "spend": 134.48,
+     "requests": 1025,
+     "tokens": 52253001,
+     "active_users": 43,
+     "errors": 4
+    },
+    {
+     "date": "2026-08-20",
+     "spend": 124.15,
+     "requests": 951,
+     "tokens": 47591777,
+     "active_users": 45,
+     "errors": 4
+    },
+    {
+     "date": "2026-08-21",
+     "spend": 139.66,
+     "requests": 995,
+     "tokens": 53468792,
+     "active_users": 44,
+     "errors": 5
+    },
+    {
+     "date": "2026-08-22",
+     "spend": 24.47,
+     "requests": 186,
+     "tokens": 9250979,
+     "active_users": 34,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-23",
+     "spend": 29.11,
+     "requests": 214,
+     "tokens": 10769633,
+     "active_users": 38,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-24",
+     "spend": 129.84,
+     "requests": 978,
+     "tokens": 49029390,
+     "active_users": 46,
+     "errors": 11
+    },
+    {
+     "date": "2026-08-25",
+     "spend": 117.27,
+     "requests": 877,
+     "tokens": 42909012,
+     "active_users": 46,
+     "errors": 4
+    },
+    {
+     "date": "2026-08-26",
+     "spend": 111.02,
+     "requests": 878,
+     "tokens": 42411020,
+     "active_users": 48,
+     "errors": 3
+    },
+    {
+     "date": "2026-08-27",
+     "spend": 114.62,
+     "requests": 898,
+     "tokens": 44068243,
+     "active_users": 48,
+     "errors": 3
+    },
+    {
+     "date": "2026-08-28",
+     "spend": 137.4,
+     "requests": 937,
+     "tokens": 51610553,
+     "active_users": 48,
+     "errors": 3
+    },
+    {
+     "date": "2026-08-29",
+     "spend": 26.83,
+     "requests": 202,
+     "tokens": 9100954,
+     "active_users": 40,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-30",
+     "spend": 32.9,
+     "requests": 214,
+     "tokens": 13008550,
+     "active_users": 39,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-31",
+     "spend": 102.04,
+     "requests": 867,
+     "tokens": 39780359,
+     "active_users": 50,
+     "errors": 5
+    },
+    {
+     "date": "2026-09-01",
+     "spend": 123.31,
+     "requests": 992,
+     "tokens": 46078895,
+     "active_users": 52,
+     "errors": 2
+    },
+    {
+     "date": "2026-09-02",
+     "spend": 130.56,
+     "requests": 993,
+     "tokens": 47632109,
+     "active_users": 52,
+     "errors": 1
+    },
+    {
+     "date": "2026-09-03",
+     "spend": 142.66,
+     "requests": 1036,
+     "tokens": 52002580,
+     "active_users": 51,
+     "errors": 9
+    },
+    {
+     "date": "2026-09-04",
+     "spend": 126.34,
+     "requests": 1001,
+     "tokens": 46352648,
+     "active_users": 51,
+     "errors": 8
+    },
+    {
+     "date": "2026-09-05",
+     "spend": 33.5,
+     "requests": 207,
+     "tokens": 11915722,
+     "active_users": 37,
+     "errors": 1
+    },
+    {
+     "date": "2026-09-06",
+     "spend": 21.49,
+     "requests": 178,
+     "tokens": 7380562,
+     "active_users": 33,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-07",
+     "spend": 129.17,
+     "requests": 934,
+     "tokens": 45056052,
+     "active_users": 51,
+     "errors": 11
+    },
+    {
+     "date": "2026-09-08",
+     "spend": 123.0,
+     "requests": 987,
+     "tokens": 44712397,
+     "active_users": 51,
+     "errors": 4
+    },
+    {
+     "date": "2026-09-09",
+     "spend": 128.43,
+     "requests": 959,
+     "tokens": 47223087,
+     "active_users": 50,
+     "errors": 5
+    },
+    {
+     "date": "2026-09-10",
+     "spend": 133.2,
+     "requests": 1010,
+     "tokens": 47189932,
+     "active_users": 51,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-11",
+     "spend": 139.67,
+     "requests": 1023,
+     "tokens": 49595367,
+     "active_users": 51,
+     "errors": 7
+    },
+    {
+     "date": "2026-09-12",
+     "spend": 659.85,
+     "requests": 1451,
+     "tokens": 164579288,
+     "active_users": 34,
+     "errors": 320
+    },
+    {
+     "date": "2026-09-13",
+     "spend": 26.46,
+     "requests": 204,
+     "tokens": 9611720,
+     "active_users": 36,
+     "errors": 1
+    },
+    {
+     "date": "2026-09-14",
+     "spend": 143.9,
+     "requests": 1047,
+     "tokens": 52713275,
+     "active_users": 50,
+     "errors": 9
+    },
+    {
+     "date": "2026-09-15",
+     "spend": 144.81,
+     "requests": 1062,
+     "tokens": 51343888,
+     "active_users": 51,
+     "errors": 11
+    },
+    {
+     "date": "2026-09-16",
+     "spend": 126.58,
+     "requests": 968,
+     "tokens": 45012357,
+     "active_users": 51,
+     "errors": 6
+    },
+    {
+     "date": "2026-09-17",
+     "spend": 138.86,
+     "requests": 1014,
+     "tokens": 50244721,
+     "active_users": 50,
+     "errors": 4
+    },
+    {
+     "date": "2026-09-18",
+     "spend": 115.52,
+     "requests": 892,
+     "tokens": 41386112,
+     "active_users": 51,
+     "errors": 7
+    },
+    {
+     "date": "2026-09-19",
+     "spend": 26.94,
+     "requests": 191,
+     "tokens": 9676236,
+     "active_users": 33,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-20",
+     "spend": 23.67,
+     "requests": 180,
+     "tokens": 8519700,
+     "active_users": 39,
+     "errors": 1
+    },
+    {
+     "date": "2026-09-21",
+     "spend": 128.09,
+     "requests": 949,
+     "tokens": 46267719,
+     "active_users": 51,
+     "errors": 6
+    },
+    {
+     "date": "2026-09-22",
+     "spend": 125.52,
+     "requests": 956,
+     "tokens": 45641070,
+     "active_users": 51,
+     "errors": 8
+    },
+    {
+     "date": "2026-09-23",
+     "spend": 133.42,
+     "requests": 994,
+     "tokens": 48512757,
+     "active_users": 51,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-24",
+     "spend": 139.15,
+     "requests": 1009,
+     "tokens": 50346045,
+     "active_users": 51,
+     "errors": 6
+    },
+    {
+     "date": "2026-09-25",
+     "spend": 133.36,
+     "requests": 1040,
+     "tokens": 49479805,
+     "active_users": 51,
+     "errors": 4
+    },
+    {
+     "date": "2026-09-26",
+     "spend": 29.75,
+     "requests": 190,
+     "tokens": 11307517,
+     "active_users": 35,
+     "errors": 0
+    },
+    {
+     "date": "2026-09-27",
+     "spend": 19.15,
+     "requests": 156,
+     "tokens": 6553864,
+     "active_users": 32,
+     "errors": 0
+    },
+    {
+     "date": "2026-09-28",
+     "spend": 135.28,
+     "requests": 973,
+     "tokens": 47640724,
+     "active_users": 51,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-29",
+     "spend": 137.21,
+     "requests": 1006,
+     "tokens": 49151042,
+     "active_users": 51,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-30",
+     "spend": 140.27,
+     "requests": 910,
+     "tokens": 50390604,
+     "active_users": 51,
+     "errors": 8
+    }
+   ],
+   "anomalies": [
+    {
+     "date": "2026-09-12",
+     "spend": 659.85,
+     "zscore": 7.51,
+     "typical": 96.2
+    }
+   ]
+  },
+  "adoption": {
+   "rows": [
+    {
+     "week_start": "2026-06-29",
+     "active_users": 8,
+     "eligible_users": 68,
+     "adoption_rate": 0.1176
+    },
+    {
+     "week_start": "2026-07-06",
+     "active_users": 16,
+     "eligible_users": 68,
+     "adoption_rate": 0.2353
+    },
+    {
+     "week_start": "2026-07-13",
+     "active_users": 24,
+     "eligible_users": 68,
+     "adoption_rate": 0.3529
+    },
+    {
+     "week_start": "2026-07-20",
+     "active_users": 31,
+     "eligible_users": 68,
+     "adoption_rate": 0.4559
+    },
+    {
+     "week_start": "2026-07-27",
+     "active_users": 35,
+     "eligible_users": 68,
+     "adoption_rate": 0.5147
+    },
+    {
+     "week_start": "2026-08-03",
+     "active_users": 35,
+     "eligible_users": 68,
+     "adoption_rate": 0.5147
+    },
+    {
+     "week_start": "2026-08-10",
+     "active_users": 39,
+     "eligible_users": 68,
+     "adoption_rate": 0.5735
+    },
+    {
+     "week_start": "2026-08-17",
+     "active_users": 49,
+     "eligible_users": 68,
+     "adoption_rate": 0.7206
+    },
+    {
+     "week_start": "2026-08-24",
+     "active_users": 50,
+     "eligible_users": 68,
+     "adoption_rate": 0.7353
+    },
+    {
+     "week_start": "2026-08-31",
+     "active_users": 53,
+     "eligible_users": 68,
+     "adoption_rate": 0.7794
+    },
+    {
+     "week_start": "2026-09-07",
+     "active_users": 51,
+     "eligible_users": 68,
+     "adoption_rate": 0.75
+    },
+    {
+     "week_start": "2026-09-14",
+     "active_users": 51,
+     "eligible_users": 68,
+     "adoption_rate": 0.75
+    },
+    {
+     "week_start": "2026-09-21",
+     "active_users": 51,
+     "eligible_users": 68,
+     "adoption_rate": 0.75
+    },
+    {
+     "week_start": "2026-09-28",
+     "active_users": 51,
+     "eligible_users": 68,
+     "adoption_rate": 0.75
+    }
+   ]
+  },
+  "breakdowns": {
+   "department": {
+    "dimension": "department",
+    "rows": [
+     {
+      "key": "engineering",
+      "spend": 4479.58,
+      "share": 0.5174,
+      "input_tokens": 1681730465,
+      "output_tokens": 63263375,
+      "cached_input_tokens": 796676099,
+      "requests": 22709,
+      "error_rate": 0.0156,
+      "avg_latency_ms": 2390.0,
+      "retries": 188,
+      "active_users": 20,
+      "cost_per_request": 0.19726
+     },
+     {
+      "key": "sales",
+      "spend": 2877.89,
+      "share": 0.3324,
+      "input_tokens": 652860996,
+      "output_tokens": 14756481,
+      "cached_input_tokens": 24945000,
+      "requests": 13308,
+      "error_rate": 0.0888,
+      "avg_latency_ms": 2391.0,
+      "retries": 1076,
+      "active_users": 10,
+      "cost_per_request": 0.216252
+     },
+     {
+      "key": "marketing",
+      "spend": 703.05,
+      "share": 0.0812,
+      "input_tokens": 184411473,
+      "output_tokens": 23944435,
+      "cached_input_tokens": 27661053,
+      "requests": 3875,
+      "error_rate": 0.01,
+      "avg_latency_ms": 1372.0,
+      "retries": 45,
+      "active_users": 7,
+      "cost_per_request": 0.181431
+     },
+     {
+      "key": "unallocated",
+      "spend": 493.3,
+      "share": 0.057,
+      "input_tokens": 118636432,
+      "output_tokens": 4865983,
+      "cached_input_tokens": 23726277,
+      "requests": 4038,
+      "error_rate": 0.0168,
+      "avg_latency_ms": 2401.0,
+      "retries": 72,
+      "active_users": 0,
+      "cost_per_request": 0.122165
+     },
+     {
+      "key": "customer_support",
+      "spend": 103.15,
+      "share": 0.0119,
+      "input_tokens": 206755449,
+      "output_tokens": 6764486,
+      "cached_input_tokens": 124050619,
+      "requests": 15025,
+      "error_rate": 0.0146,
+      "avg_latency_ms": 897.0,
+      "retries": 216,
+      "active_users": 14,
+      "cost_per_request": 0.006865
+     },
+     {
+      "key": "finance_operations",
+      "spend": 1.06,
+      "share": 0.0001,
+      "input_tokens": 251858,
+      "output_tokens": 19999,
+      "cached_input_tokens": 0,
+      "requests": 25,
+      "error_rate": 0.0,
+      "avg_latency_ms": 2673.0,
+      "retries": 1,
+      "active_users": 5,
+      "cost_per_request": 0.042222
+     }
+    ]
+   },
+   "provider": {
+    "dimension": "provider",
+    "rows": [
+     {
+      "key": "openai",
+      "spend": 5971.57,
+      "share": 0.6897,
+      "input_tokens": 1631212545,
+      "output_tokens": 51201043,
+      "cached_input_tokens": 451970097,
+      "requests": 28382,
+      "error_rate": 0.0478,
+      "avg_latency_ms": 2391.0,
+      "retries": 1229,
+      "active_users": 30,
+      "cost_per_request": 0.2104
+     },
+     {
+      "key": "anthropic",
+      "spend": 2257.12,
+      "share": 0.2607,
+      "input_tokens": 1090127028,
+      "output_tokens": 46145893,
+      "cached_input_tokens": 526593333,
+      "requests": 27966,
+      "error_rate": 0.0148,
+      "avg_latency_ms": 1448.0,
+      "retries": 341,
+      "active_users": 46,
+      "cost_per_request": 0.080709
+     },
+     {
+      "key": "google",
+      "spend": 429.33,
+      "share": 0.0496,
+      "input_tokens": 123307100,
+      "output_tokens": 16267823,
+      "cached_input_tokens": 18495618,
+      "requests": 2632,
+      "error_rate": 0.0059,
+      "avg_latency_ms": 903.0,
+      "retries": 28,
+      "active_users": 7,
+      "cost_per_request": 0.16312
+     }
+    ]
+   },
+   "model": {
+    "dimension": "model",
+    "rows": [
+     {
+      "key": "openai/gpt-demo-large",
+      "spend": 5971.57,
+      "share": 0.6897,
+      "input_tokens": 1631212545,
+      "output_tokens": 51201043,
+      "cached_input_tokens": 451970097,
+      "requests": 28382,
+      "error_rate": 0.0478,
+      "avg_latency_ms": 2391.0,
+      "retries": 1229,
+      "active_users": 30,
+      "cost_per_request": 0.2104
+     },
+     {
+      "key": "anthropic/claude-demo-advanced",
+      "spend": 2153.97,
+      "share": 0.2488,
+      "input_tokens": 883371579,
+      "output_tokens": 39381407,
+      "cached_input_tokens": 402542714,
+      "requests": 12941,
+      "error_rate": 0.0152,
+      "avg_latency_ms": 2389.0,
+      "retries": 125,
+      "active_users": 32,
+      "cost_per_request": 0.166445
+     },
+     {
+      "key": "google/gemini-demo-pro",
+      "spend": 429.33,
+      "share": 0.0496,
+      "input_tokens": 123307100,
+      "output_tokens": 16267823,
+      "cached_input_tokens": 18495618,
+      "requests": 2632,
+      "error_rate": 0.0059,
+      "avg_latency_ms": 903.0,
+      "retries": 28,
+      "active_users": 7,
+      "cost_per_request": 0.16312
+     },
+     {
+      "key": "anthropic/claude-demo-compact",
+      "spend": 103.15,
+      "share": 0.0119,
+      "input_tokens": 206755449,
+      "output_tokens": 6764486,
+      "cached_input_tokens": 124050619,
+      "requests": 15025,
+      "error_rate": 0.0146,
+      "avg_latency_ms": 897.0,
+      "retries": 216,
+      "active_users": 14,
+      "cost_per_request": 0.006865
+     }
+    ]
+   },
+   "use_case": {
+    "dimension": "use_case",
+    "rows": [
+     {
+      "key": "sales_outreach",
+      "spend": 2877.89,
+      "share": 0.3324,
+      "input_tokens": 652860996,
+      "output_tokens": 14756481,
+      "cached_input_tokens": 24945000,
+      "requests": 13308,
+      "error_rate": 0.0888,
+      "avg_latency_ms": 2391.0,
+      "retries": 1076,
+      "active_users": 10,
+      "cost_per_request": 0.216252
+     },
+     {
+      "key": "unallocated",
+      "spend": 2544.53,
+      "share": 0.2939,
+      "input_tokens": 916615886,
+      "output_tokens": 38436048,
+      "cached_input_tokens": 422715430,
+      "requests": 17433,
+      "error_rate": 0.0158,
+      "avg_latency_ms": 2400.0,
+      "retries": 186,
+      "active_users": 20,
+      "cost_per_request": 0.14596
+     },
+     {
+      "key": "code_review",
+      "spend": 2428.36,
+      "share": 0.2805,
+      "input_tokens": 883751011,
+      "output_tokens": 29693310,
+      "cached_input_tokens": 397686946,
+      "requests": 9314,
+      "error_rate": 0.0162,
+      "avg_latency_ms": 2371.0,
+      "retries": 74,
+      "active_users": 20,
+      "cost_per_request": 0.260721
+     },
+     {
+      "key": "marketing_content",
+      "spend": 703.05,
+      "share": 0.0812,
+      "input_tokens": 184411473,
+      "output_tokens": 23944435,
+      "cached_input_tokens": 27661053,
+      "requests": 3875,
+      "error_rate": 0.01,
+      "avg_latency_ms": 1372.0,
+      "retries": 45,
+      "active_users": 7,
+      "cost_per_request": 0.181431
+     },
+     {
+      "key": "support_triage",
+      "spend": 103.15,
+      "share": 0.0119,
+      "input_tokens": 206755449,
+      "output_tokens": 6764486,
+      "cached_input_tokens": 124050619,
+      "requests": 15025,
+      "error_rate": 0.0146,
+      "avg_latency_ms": 897.0,
+      "retries": 216,
+      "active_users": 14,
+      "cost_per_request": 0.006865
+     },
+     {
+      "key": "invoice_matching",
+      "spend": 1.06,
+      "share": 0.0001,
+      "input_tokens": 251858,
+      "output_tokens": 19999,
+      "cached_input_tokens": 0,
+      "requests": 25,
+      "error_rate": 0.0,
+      "avg_latency_ms": 2673.0,
+      "retries": 1,
+      "active_users": 5,
+      "cost_per_request": 0.042222
+     }
+    ]
+   }
+  },
+  "budgets": {
+   "as_of": "2026-09-30",
+   "basis": "model_usage",
+   "rows": [
+    {
+     "budget_id": "bud_202609_engineering",
+     "department": "engineering",
+     "month": "2026-09-01",
+     "budget": 2000.0,
+     "spent": 1638.47,
+     "utilization": 0.8192,
+     "forecast": 1638.47,
+     "forecast_utilization": 0.8192,
+     "status": "warning"
+    },
+    {
+     "budget_id": "bud_202609_customer_support",
+     "department": "customer_support",
+     "month": "2026-09-01",
+     "budget": 150.0,
+     "spent": 38.71,
+     "utilization": 0.2581,
+     "forecast": 38.71,
+     "forecast_utilization": 0.2581,
+     "status": "ok"
+    },
+    {
+     "budget_id": "bud_202609_sales",
+     "department": "sales",
+     "month": "2026-09-01",
+     "budget": 1400.0,
+     "spent": 1633.27,
+     "utilization": 1.1666,
+     "forecast": 1633.27,
+     "forecast_utilization": 1.1666,
+     "status": "exceeded"
+    },
+    {
+     "budget_id": "bud_202609_marketing",
+     "department": "marketing",
+     "month": "2026-09-01",
+     "budget": 300.0,
+     "spent": 271.46,
+     "utilization": 0.9049,
+     "forecast": 271.46,
+     "forecast_utilization": 0.9049,
+     "status": "warning"
+    },
+    {
+     "budget_id": "bud_202609_finance_operations",
+     "department": "finance_operations",
+     "month": "2026-09-01",
+     "budget": 50.0,
+     "spent": 0.18,
+     "utilization": 0.0035,
+     "forecast": 0.18,
+     "forecast_utilization": 0.0035,
+     "status": "ok"
+    },
+    {
+     "budget_id": "bud_202609_org",
+     "department": "organization",
+     "month": "2026-09-01",
+     "budget": 5000.0,
+     "spent": 3759.12,
+     "utilization": 0.7518,
+     "forecast": 3759.12,
+     "forecast_utilization": 0.7518,
+     "status": "ok"
+    }
+   ]
+  }
+ },
+ "dashboard_september": {
+  "overview": {
+   "synthetic": true,
+   "currency": "EUR",
+   "period": {
+    "start": "2026-09-01",
+    "end": "2026-09-30",
+    "days": 30
+   },
+   "roi_applicable": true,
+   "roi_status": "ok",
+   "roi_reasons": [
+    "partial_evidence"
+   ],
+   "insufficient_use_cases": [
+    "invoice_matching"
+   ],
+   "kpis": {
+    "ai_spend": {
+     "value": 3759.12,
+     "basis": "measured",
+     "definition_key": "metric.ai_spend",
+     "unit": "currency"
+    },
+    "total_ai_cost": {
+     "value": 33036.06,
+     "basis": "measured",
+     "definition_key": "metric.total_ai_cost",
+     "unit": "currency"
+    },
+    "input_tokens": {
+     "value": 1237369260,
+     "basis": "measured",
+     "definition_key": "metric.input_tokens",
+     "unit": "count"
+    },
+    "output_tokens": {
+     "value": 46148535,
+     "basis": "measured",
+     "definition_key": "metric.output_tokens",
+     "unit": "count"
+    },
+    "cached_input_tokens": {
+     "value": 384484922,
+     "basis": "measured",
+     "definition_key": "metric.cached_input_tokens",
+     "unit": "count"
+    },
+    "requests": {
+     "value": 24512,
+     "basis": "measured",
+     "definition_key": "metric.requests",
+     "unit": "count"
+    },
+    "active_users": {
+     "value": 53,
+     "basis": "measured",
+     "definition_key": "metric.active_users",
+     "unit": "count"
+    },
+    "active_departments": {
+     "value": 5,
+     "basis": "measured",
+     "definition_key": "metric.active_departments",
+     "unit": "count"
+    },
+    "error_rate": {
+     "value": 0.0511,
+     "basis": "measured",
+     "definition_key": "metric.error_rate",
+     "unit": "ratio"
+    },
+    "gross_benefit": {
+     "value": 33500.0,
+     "basis": "evidence_backed",
+     "definition_key": "metric.gross_benefit",
+     "unit": "currency"
+    },
+    "estimated_total_value": {
+     "value": 107301.66,
+     "basis": "estimated",
+     "definition_key": "metric.estimated_total_value",
+     "unit": "currency"
+    },
+    "net_benefit": {
+     "value": 463.94,
+     "basis": "evidence_backed",
+     "definition_key": "metric.net_benefit",
+     "unit": "currency"
+    },
+    "roi_pct": {
+     "value": 1.4,
+     "basis": "evidence_backed",
+     "definition_key": "metric.roi",
+     "unit": "percent"
+    },
+    "verified_savings": {
+     "value": 15500.0,
+     "basis": "evidence_backed",
+     "definition_key": "metric.verified_savings",
+     "unit": "currency"
+    },
+    "hours_saved": {
+     "value": 1109.7,
+     "basis": "measured",
+     "definition_key": "metric.hours_saved",
+     "unit": "hours",
+     "net": 793.6
+    },
+    "cost_per_successful_task": {
+     "value": 5.93,
+     "basis": "measured",
+     "definition_key": "metric.cost_per_successful_task",
+     "unit": "currency"
+    }
+   },
+   "roi": {
+    "status": "ok",
+    "reasons": [
+     "partial_evidence"
+    ],
+    "period_days": 30,
+    "costs": {
+     "model_usage": 3759.12,
+     "subscription": 9470.0,
+     "infrastructure": 2200.0,
+     "implementation": 0.0,
+     "maintenance": 900.0,
+     "human_review": 9548.79,
+     "rework": 7158.15,
+     "other_operating": 0.0,
+     "total": 33036.06
+    },
+    "one_off_cost": 0.0,
+    "recurring_cost": 33036.06,
+    "benefits": {
+     "verified_savings": 15500.0,
+     "supported_contribution": 1500.0,
+     "supported_cost_avoidance": 16500.0,
+     "verified_component": 15500.0,
+     "supported_component": 18000.0,
+     "gross": 33500.0,
+     "estimated_excluded": 15000.0,
+     "counted": [
+      {
+       "id": "ben_020",
+       "use_case": "code_review",
+       "category": "financial_savings",
+       "amount": 9500.0,
+       "verification_status": "verified",
+       "evidence_key": "code_review:contractor_hours:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.9,
+       "source": "Contractor invoices"
+      },
+      {
+       "id": "ben_023",
+       "use_case": "marketing_content",
+       "category": "cost_avoidance",
+       "amount": 2500.0,
+       "verification_status": "supported",
+       "evidence_key": "marketing_content:freelance:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.6,
+       "source": "Purchase orders vs. plan"
+      },
+      {
+       "id": "ben_021",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 1500.0,
+       "verification_status": "supported",
+       "evidence_key": "sales_outreach:holdout_margin:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.6,
+       "source": "Holdout reps, gross margin"
+      },
+      {
+       "id": "ben_017",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 6000.0,
+       "verification_status": "verified",
+       "evidence_key": "support_triage:bpo_invoices:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.95,
+       "source": "AP ledger, vendor BPO-01"
+      },
+      {
+       "id": "ben_018",
+       "use_case": "support_triage",
+       "category": "cost_avoidance",
+       "amount": 14000.0,
+       "verification_status": "supported",
+       "evidence_key": "support_triage:overflow_capacity:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.75,
+       "source": "RCT deflection × contract rate"
+      }
+     ],
+     "excluded": [
+      {
+       "id": "ben_001",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 5612.9,
+       "verification_status": "verified",
+       "evidence_key": "support_triage:bpo_invoices:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.95,
+       "source": "AP ledger, vendor BPO-01",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_002",
+       "use_case": "support_triage",
+       "category": "cost_avoidance",
+       "amount": 13096.77,
+       "verification_status": "supported",
+       "evidence_key": "support_triage:overflow_capacity:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.75,
+       "source": "RCT deflection × contract rate",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_003",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 14032.26,
+       "verification_status": "estimated",
+       "evidence_key": "support_triage:overflow_capacity:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.4,
+       "source": "Team lead estimate",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_004",
+       "use_case": "code_review",
+       "category": "financial_savings",
+       "amount": 8887.1,
+       "verification_status": "verified",
+       "evidence_key": "code_review:contractor_hours:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.9,
+       "source": "Contractor invoices",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_005",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 1403.23,
+       "verification_status": "supported",
+       "evidence_key": "sales_outreach:holdout_margin:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.6,
+       "source": "Holdout reps, gross margin",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_006",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 11225.81,
+       "verification_status": "unverified",
+       "evidence_key": "sales_outreach:pipeline_influence:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.2,
+       "source": "Vendor dashboard 'influenced pipeline'",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_007",
+       "use_case": "marketing_content",
+       "category": "cost_avoidance",
+       "amount": 2338.71,
+       "verification_status": "supported",
+       "evidence_key": "marketing_content:freelance:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.6,
+       "source": "Purchase orders vs. plan",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_008",
+       "use_case": "invoice_matching",
+       "category": "financial_savings",
+       "amount": 2806.45,
+       "verification_status": "estimated",
+       "evidence_key": "invoice_matching:fte_time:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.3,
+       "source": "Pilot owner estimate",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_009",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 6000.0,
+       "verification_status": "verified",
+       "evidence_key": "support_triage:bpo_invoices:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.95,
+       "source": "AP ledger, vendor BPO-01",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_010",
+       "use_case": "support_triage",
+       "category": "cost_avoidance",
+       "amount": 14000.0,
+       "verification_status": "supported",
+       "evidence_key": "support_triage:overflow_capacity:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.75,
+       "source": "RCT deflection × contract rate",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_011",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 15000.0,
+       "verification_status": "estimated",
+       "evidence_key": "support_triage:overflow_capacity:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.4,
+       "source": "Team lead estimate",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_012",
+       "use_case": "code_review",
+       "category": "financial_savings",
+       "amount": 9500.0,
+       "verification_status": "verified",
+       "evidence_key": "code_review:contractor_hours:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.9,
+       "source": "Contractor invoices",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_013",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 1500.0,
+       "verification_status": "supported",
+       "evidence_key": "sales_outreach:holdout_margin:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.6,
+       "source": "Holdout reps, gross margin",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_014",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 12000.0,
+       "verification_status": "unverified",
+       "evidence_key": "sales_outreach:pipeline_influence:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.2,
+       "source": "Vendor dashboard 'influenced pipeline'",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_015",
+       "use_case": "marketing_content",
+       "category": "cost_avoidance",
+       "amount": 2500.0,
+       "verification_status": "supported",
+       "evidence_key": "marketing_content:freelance:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.6,
+       "source": "Purchase orders vs. plan",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_016",
+       "use_case": "invoice_matching",
+       "category": "financial_savings",
+       "amount": 3000.0,
+       "verification_status": "estimated",
+       "evidence_key": "invoice_matching:fte_time:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.3,
+       "source": "Pilot owner estimate",
+       "reason": "outside_period"
+      },
+      {
+       "id": "ben_019",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 15000.0,
+       "verification_status": "estimated",
+       "evidence_key": "support_triage:overflow_capacity:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.4,
+       "source": "Team lead estimate",
+       "reason": "duplicate_evidence"
+      },
+      {
+       "id": "ben_024",
+       "use_case": "invoice_matching",
+       "category": "financial_savings",
+       "amount": 3000.0,
+       "verification_status": "estimated",
+       "evidence_key": "invoice_matching:fte_time:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.3,
+       "source": "Pilot owner estimate",
+       "reason": "estimate_only"
+      },
+      {
+       "id": "ben_022",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 12000.0,
+       "verification_status": "unverified",
+       "evidence_key": "sales_outreach:pipeline_influence:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.2,
+       "source": "Vendor dashboard 'influenced pipeline'",
+       "reason": "unverified"
+      }
+     ]
+    },
+    "gross_benefit": 33500.0,
+    "net_benefit": 463.94,
+    "roi_pct": 1.4,
+    "benefit_cost_ratio": 1.01,
+    "cost_per_successful_task": 5.93,
+    "successful_tasks": 5571,
+    "break_even_tasks": 5373.0,
+    "payback_months": 0.0,
+    "hours": {
+     "gross": 1109.7,
+     "net": 793.6,
+     "baseline_source": "mixed",
+     "baseline_minutes_per_task": null,
+     "ai_minutes_per_task": null
+    },
+    "estimated_time_value": 58801.66,
+    "scenarios": {
+     "conservative": {
+      "name": "conservative",
+      "gross_benefit": 28100.0,
+      "total_cost": 36339.66,
+      "net_benefit": -8239.66,
+      "roi_pct": -22.7,
+      "includes_estimates": false
+     },
+     "expected": {
+      "name": "expected",
+      "gross_benefit": 33500.0,
+      "total_cost": 33036.06,
+      "net_benefit": 463.94,
+      "roi_pct": 1.4,
+      "includes_estimates": false
+     },
+     "optimistic": {
+      "name": "optimistic",
+      "gross_benefit": 70400.83,
+      "total_cost": 33036.06,
+      "net_benefit": 37364.77,
+      "roi_pct": 113.1,
+      "includes_estimates": true
+     }
+    }
+   }
+  },
+  "trend": {
+   "rows": [
+    {
+     "date": "2026-09-01",
+     "spend": 123.31,
+     "requests": 992,
+     "tokens": 46078895,
+     "active_users": 52,
+     "errors": 2
+    },
+    {
+     "date": "2026-09-02",
+     "spend": 130.56,
+     "requests": 993,
+     "tokens": 47632109,
+     "active_users": 52,
+     "errors": 1
+    },
+    {
+     "date": "2026-09-03",
+     "spend": 142.66,
+     "requests": 1036,
+     "tokens": 52002580,
+     "active_users": 51,
+     "errors": 9
+    },
+    {
+     "date": "2026-09-04",
+     "spend": 126.34,
+     "requests": 1001,
+     "tokens": 46352648,
+     "active_users": 51,
+     "errors": 8
+    },
+    {
+     "date": "2026-09-05",
+     "spend": 33.5,
+     "requests": 207,
+     "tokens": 11915722,
+     "active_users": 37,
+     "errors": 1
+    },
+    {
+     "date": "2026-09-06",
+     "spend": 21.49,
+     "requests": 178,
+     "tokens": 7380562,
+     "active_users": 33,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-07",
+     "spend": 129.17,
+     "requests": 934,
+     "tokens": 45056052,
+     "active_users": 51,
+     "errors": 11
+    },
+    {
+     "date": "2026-09-08",
+     "spend": 123.0,
+     "requests": 987,
+     "tokens": 44712397,
+     "active_users": 51,
+     "errors": 4
+    },
+    {
+     "date": "2026-09-09",
+     "spend": 128.43,
+     "requests": 959,
+     "tokens": 47223087,
+     "active_users": 50,
+     "errors": 5
+    },
+    {
+     "date": "2026-09-10",
+     "spend": 133.2,
+     "requests": 1010,
+     "tokens": 47189932,
+     "active_users": 51,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-11",
+     "spend": 139.67,
+     "requests": 1023,
+     "tokens": 49595367,
+     "active_users": 51,
+     "errors": 7
+    },
+    {
+     "date": "2026-09-12",
+     "spend": 659.85,
+     "requests": 1451,
+     "tokens": 164579288,
+     "active_users": 34,
+     "errors": 320
+    },
+    {
+     "date": "2026-09-13",
+     "spend": 26.46,
+     "requests": 204,
+     "tokens": 9611720,
+     "active_users": 36,
+     "errors": 1
+    },
+    {
+     "date": "2026-09-14",
+     "spend": 143.9,
+     "requests": 1047,
+     "tokens": 52713275,
+     "active_users": 50,
+     "errors": 9
+    },
+    {
+     "date": "2026-09-15",
+     "spend": 144.81,
+     "requests": 1062,
+     "tokens": 51343888,
+     "active_users": 51,
+     "errors": 11
+    },
+    {
+     "date": "2026-09-16",
+     "spend": 126.58,
+     "requests": 968,
+     "tokens": 45012357,
+     "active_users": 51,
+     "errors": 6
+    },
+    {
+     "date": "2026-09-17",
+     "spend": 138.86,
+     "requests": 1014,
+     "tokens": 50244721,
+     "active_users": 50,
+     "errors": 4
+    },
+    {
+     "date": "2026-09-18",
+     "spend": 115.52,
+     "requests": 892,
+     "tokens": 41386112,
+     "active_users": 51,
+     "errors": 7
+    },
+    {
+     "date": "2026-09-19",
+     "spend": 26.94,
+     "requests": 191,
+     "tokens": 9676236,
+     "active_users": 33,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-20",
+     "spend": 23.67,
+     "requests": 180,
+     "tokens": 8519700,
+     "active_users": 39,
+     "errors": 1
+    },
+    {
+     "date": "2026-09-21",
+     "spend": 128.09,
+     "requests": 949,
+     "tokens": 46267719,
+     "active_users": 51,
+     "errors": 6
+    },
+    {
+     "date": "2026-09-22",
+     "spend": 125.52,
+     "requests": 956,
+     "tokens": 45641070,
+     "active_users": 51,
+     "errors": 8
+    },
+    {
+     "date": "2026-09-23",
+     "spend": 133.42,
+     "requests": 994,
+     "tokens": 48512757,
+     "active_users": 51,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-24",
+     "spend": 139.15,
+     "requests": 1009,
+     "tokens": 50346045,
+     "active_users": 51,
+     "errors": 6
+    },
+    {
+     "date": "2026-09-25",
+     "spend": 133.36,
+     "requests": 1040,
+     "tokens": 49479805,
+     "active_users": 51,
+     "errors": 4
+    },
+    {
+     "date": "2026-09-26",
+     "spend": 29.75,
+     "requests": 190,
+     "tokens": 11307517,
+     "active_users": 35,
+     "errors": 0
+    },
+    {
+     "date": "2026-09-27",
+     "spend": 19.15,
+     "requests": 156,
+     "tokens": 6553864,
+     "active_users": 32,
+     "errors": 0
+    },
+    {
+     "date": "2026-09-28",
+     "spend": 135.28,
+     "requests": 973,
+     "tokens": 47640724,
+     "active_users": 51,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-29",
+     "spend": 137.21,
+     "requests": 1006,
+     "tokens": 49151042,
+     "active_users": 51,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-30",
+     "spend": 140.27,
+     "requests": 910,
+     "tokens": 50390604,
+     "active_users": 51,
+     "errors": 8
+    }
+   ],
+   "anomalies": [
+    {
+     "date": "2026-09-12",
+     "spend": 659.85,
+     "zscore": 4.81,
+     "typical": 125.3
+    }
+   ]
+  },
+  "adoption": {
+   "rows": [
+    {
+     "week_start": "2026-08-31",
+     "active_users": 53,
+     "eligible_users": 68,
+     "adoption_rate": 0.7794
+    },
+    {
+     "week_start": "2026-09-07",
+     "active_users": 51,
+     "eligible_users": 68,
+     "adoption_rate": 0.75
+    },
+    {
+     "week_start": "2026-09-14",
+     "active_users": 51,
+     "eligible_users": 68,
+     "adoption_rate": 0.75
+    },
+    {
+     "week_start": "2026-09-21",
+     "active_users": 51,
+     "eligible_users": 68,
+     "adoption_rate": 0.75
+    },
+    {
+     "week_start": "2026-09-28",
+     "active_users": 51,
+     "eligible_users": 68,
+     "adoption_rate": 0.75
+    }
+   ]
+  },
+  "breakdowns": {
+   "department": {
+    "dimension": "department",
+    "rows": [
+     {
+      "key": "engineering",
+      "spend": 1638.47,
+      "share": 0.4359,
+      "input_tokens": 646461680,
+      "output_tokens": 24486322,
+      "cached_input_tokens": 305815104,
+      "requests": 8711,
+      "error_rate": 0.0173,
+      "avg_latency_ms": 2420.0,
+      "retries": 75,
+      "active_users": 20,
+      "cost_per_request": 0.188092
+     },
+     {
+      "key": "sales",
+      "spend": 1633.27,
+      "share": 0.4345,
+      "input_tokens": 395285068,
+      "output_tokens": 7963968,
+      "cached_input_tokens": 12067093,
+      "requests": 7082,
+      "error_rate": 0.1571,
+      "avg_latency_ms": 2393.0,
+      "retries": 1023,
+      "active_users": 10,
+      "cost_per_request": 0.230622
+     },
+     {
+      "key": "marketing",
+      "spend": 271.46,
+      "share": 0.0722,
+      "input_tokens": 70945636,
+      "output_tokens": 9260876,
+      "cached_input_tokens": 10641592,
+      "requests": 1490,
+      "error_rate": 0.0121,
+      "avg_latency_ms": 1389.0,
+      "retries": 12,
+      "active_users": 7,
+      "cost_per_request": 0.182186
+     },
+     {
+      "key": "unallocated",
+      "spend": 177.04,
+      "share": 0.0471,
+      "input_tokens": 47038596,
+      "output_tokens": 1896162,
+      "cached_input_tokens": 9407318,
+      "requests": 1582,
+      "error_rate": 0.0103,
+      "avg_latency_ms": 2424.0,
+      "retries": 22,
+      "active_users": 0,
+      "cost_per_request": 0.11191
+     },
+     {
+      "key": "customer_support",
+      "spend": 38.71,
+      "share": 0.0103,
+      "input_tokens": 77591403,
+      "output_tokens": 2538894,
+      "cached_input_tokens": 46553815,
+      "requests": 5644,
+      "error_rate": 0.0162,
+      "avg_latency_ms": 899.0,
+      "retries": 83,
+      "active_users": 14,
+      "cost_per_request": 0.006859
+     },
+     {
+      "key": "finance_operations",
+      "spend": 0.18,
+      "share": 0.0,
+      "input_tokens": 46877,
+      "output_tokens": 2313,
+      "cached_input_tokens": 0,
+      "requests": 3,
+      "error_rate": 0.0,
+      "avg_latency_ms": 2820.0,
+      "retries": 0,
+      "active_users": 2,
+      "cost_per_request": 0.058442
+     }
+    ]
+   },
+   "provider": {
+    "dimension": "provider",
+    "rows": [
+     {
+      "key": "openai",
+      "spend": 2732.84,
+      "share": 0.727,
+      "input_tokens": 777942529,
+      "output_tokens": 22051087,
+      "cached_input_tokens": 178762396,
+      "requests": 12924,
+      "error_rate": 0.0876,
+      "avg_latency_ms": 2399.0,
+      "retries": 1082,
+      "active_users": 30,
+      "cost_per_request": 0.211455
+     },
+     {
+      "key": "anthropic",
+      "spend": 862.41,
+      "share": 0.2294,
+      "input_tokens": 412610636,
+      "output_tokens": 17835035,
+      "cached_input_tokens": 198700272,
+      "requests": 10572,
+      "error_rate": 0.0156,
+      "avg_latency_ms": 1467.0,
+      "retries": 123,
+      "active_users": 43,
+      "cost_per_request": 0.081575
+     },
+     {
+      "key": "google",
+      "spend": 163.86,
+      "share": 0.0436,
+      "input_tokens": 46816095,
+      "output_tokens": 6262413,
+      "cached_input_tokens": 7022254,
+      "requests": 1016,
+      "error_rate": 0.0103,
+      "avg_latency_ms": 905.0,
+      "retries": 10,
+      "active_users": 7,
+      "cost_per_request": 0.161284
+     }
+    ]
+   },
+   "model": {
+    "dimension": "model",
+    "rows": [
+     {
+      "key": "openai/gpt-demo-large",
+      "spend": 2732.84,
+      "share": 0.727,
+      "input_tokens": 777942529,
+      "output_tokens": 22051087,
+      "cached_input_tokens": 178762396,
+      "requests": 12924,
+      "error_rate": 0.0876,
+      "avg_latency_ms": 2399.0,
+      "retries": 1082,
+      "active_users": 30,
+      "cost_per_request": 0.211455
+     },
+     {
+      "key": "anthropic/claude-demo-advanced",
+      "spend": 823.7,
+      "share": 0.2191,
+      "input_tokens": 335019233,
+      "output_tokens": 15296141,
+      "cached_input_tokens": 152146457,
+      "requests": 4928,
+      "error_rate": 0.0145,
+      "avg_latency_ms": 2437.0,
+      "retries": 40,
+      "active_users": 29,
+      "cost_per_request": 0.167148
+     },
+     {
+      "key": "google/gemini-demo-pro",
+      "spend": 163.86,
+      "share": 0.0436,
+      "input_tokens": 46816095,
+      "output_tokens": 6262413,
+      "cached_input_tokens": 7022254,
+      "requests": 1016,
+      "error_rate": 0.0103,
+      "avg_latency_ms": 905.0,
+      "retries": 10,
+      "active_users": 7,
+      "cost_per_request": 0.161284
+     },
+     {
+      "key": "anthropic/claude-demo-compact",
+      "spend": 38.71,
+      "share": 0.0103,
+      "input_tokens": 77591403,
+      "output_tokens": 2538894,
+      "cached_input_tokens": 46553815,
+      "requests": 5644,
+      "error_rate": 0.0162,
+      "avg_latency_ms": 899.0,
+      "retries": 83,
+      "active_users": 14,
+      "cost_per_request": 0.006859
+     }
+    ]
+   },
+   "use_case": {
+    "dimension": "use_case",
+    "rows": [
+     {
+      "key": "sales_outreach",
+      "spend": 1633.27,
+      "share": 0.4345,
+      "input_tokens": 395285068,
+      "output_tokens": 7963968,
+      "cached_input_tokens": 12067093,
+      "requests": 7082,
+      "error_rate": 0.1571,
+      "avg_latency_ms": 2393.0,
+      "retries": 1023,
+      "active_users": 10,
+      "cost_per_request": 0.230622
+     },
+     {
+      "key": "unallocated",
+      "spend": 912.67,
+      "share": 0.2428,
+      "input_tokens": 345197849,
+      "output_tokens": 14587464,
+      "cached_input_tokens": 158486726,
+      "requests": 6620,
+      "error_rate": 0.0146,
+      "avg_latency_ms": 2429.0,
+      "retries": 69,
+      "active_users": 20,
+      "cost_per_request": 0.137865
+     },
+     {
+      "key": "code_review",
+      "spend": 902.84,
+      "share": 0.2402,
+      "input_tokens": 348302427,
+      "output_tokens": 11795020,
+      "cached_input_tokens": 156735696,
+      "requests": 3673,
+      "error_rate": 0.0177,
+      "avg_latency_ms": 2397.0,
+      "retries": 28,
+      "active_users": 20,
+      "cost_per_request": 0.245804
+     },
+     {
+      "key": "marketing_content",
+      "spend": 271.46,
+      "share": 0.0722,
+      "input_tokens": 70945636,
+      "output_tokens": 9260876,
+      "cached_input_tokens": 10641592,
+      "requests": 1490,
+      "error_rate": 0.0121,
+      "avg_latency_ms": 1389.0,
+      "retries": 12,
+      "active_users": 7,
+      "cost_per_request": 0.182186
+     },
+     {
+      "key": "support_triage",
+      "spend": 38.71,
+      "share": 0.0103,
+      "input_tokens": 77591403,
+      "output_tokens": 2538894,
+      "cached_input_tokens": 46553815,
+      "requests": 5644,
+      "error_rate": 0.0162,
+      "avg_latency_ms": 899.0,
+      "retries": 83,
+      "active_users": 14,
+      "cost_per_request": 0.006859
+     },
+     {
+      "key": "invoice_matching",
+      "spend": 0.18,
+      "share": 0.0,
+      "input_tokens": 46877,
+      "output_tokens": 2313,
+      "cached_input_tokens": 0,
+      "requests": 3,
+      "error_rate": 0.0,
+      "avg_latency_ms": 2820.0,
+      "retries": 0,
+      "active_users": 2,
+      "cost_per_request": 0.058442
+     }
+    ]
+   }
+  },
+  "budgets": {
+   "as_of": "2026-09-30",
+   "basis": "model_usage",
+   "rows": [
+    {
+     "budget_id": "bud_202609_engineering",
+     "department": "engineering",
+     "month": "2026-09-01",
+     "budget": 2000.0,
+     "spent": 1638.47,
+     "utilization": 0.8192,
+     "forecast": 1638.47,
+     "forecast_utilization": 0.8192,
+     "status": "warning"
+    },
+    {
+     "budget_id": "bud_202609_customer_support",
+     "department": "customer_support",
+     "month": "2026-09-01",
+     "budget": 150.0,
+     "spent": 38.71,
+     "utilization": 0.2581,
+     "forecast": 38.71,
+     "forecast_utilization": 0.2581,
+     "status": "ok"
+    },
+    {
+     "budget_id": "bud_202609_sales",
+     "department": "sales",
+     "month": "2026-09-01",
+     "budget": 1400.0,
+     "spent": 1633.27,
+     "utilization": 1.1666,
+     "forecast": 1633.27,
+     "forecast_utilization": 1.1666,
+     "status": "exceeded"
+    },
+    {
+     "budget_id": "bud_202609_marketing",
+     "department": "marketing",
+     "month": "2026-09-01",
+     "budget": 300.0,
+     "spent": 271.46,
+     "utilization": 0.9049,
+     "forecast": 271.46,
+     "forecast_utilization": 0.9049,
+     "status": "warning"
+    },
+    {
+     "budget_id": "bud_202609_finance_operations",
+     "department": "finance_operations",
+     "month": "2026-09-01",
+     "budget": 50.0,
+     "spent": 0.18,
+     "utilization": 0.0035,
+     "forecast": 0.18,
+     "forecast_utilization": 0.0035,
+     "status": "ok"
+    },
+    {
+     "budget_id": "bud_202609_org",
+     "department": "organization",
+     "month": "2026-09-01",
+     "budget": 5000.0,
+     "spent": 3759.12,
+     "utilization": 0.7518,
+     "forecast": 3759.12,
+     "forecast_utilization": 0.7518,
+     "status": "ok"
+    }
+   ]
+  }
+ },
+ "dashboard_openai_only": {
+  "overview": {
+   "synthetic": true,
+   "currency": "EUR",
+   "period": {
+    "start": "2026-07-03",
+    "end": "2026-09-30",
+    "days": 90
+   },
+   "roi_applicable": false,
+   "roi_status": "not_applicable_for_filter",
+   "roi_reasons": [
+    "partial_evidence"
+   ],
+   "insufficient_use_cases": [
+    "invoice_matching"
+   ],
+   "kpis": {
+    "ai_spend": {
+     "value": 5971.57,
+     "basis": "measured",
+     "definition_key": "metric.ai_spend",
+     "unit": "currency"
+    },
+    "total_ai_cost": {
+     "value": 133605.57,
+     "basis": "measured",
+     "definition_key": "metric.total_ai_cost",
+     "unit": "currency"
+    },
+    "input_tokens": {
+     "value": 1631212545,
+     "basis": "measured",
+     "definition_key": "metric.input_tokens",
+     "unit": "count"
+    },
+    "output_tokens": {
+     "value": 51201043,
+     "basis": "measured",
+     "definition_key": "metric.output_tokens",
+     "unit": "count"
+    },
+    "cached_input_tokens": {
+     "value": 451970097,
+     "basis": "measured",
+     "definition_key": "metric.cached_input_tokens",
+     "unit": "count"
+    },
+    "requests": {
+     "value": 28382,
+     "basis": "measured",
+     "definition_key": "metric.requests",
+     "unit": "count"
+    },
+    "active_users": {
+     "value": 30,
+     "basis": "measured",
+     "definition_key": "metric.active_users",
+     "unit": "count"
+    },
+    "active_departments": {
+     "value": 2,
+     "basis": "measured",
+     "definition_key": "metric.active_departments",
+     "unit": "count"
+    },
+    "error_rate": {
+     "value": 0.0478,
+     "basis": "measured",
+     "definition_key": "metric.error_rate",
+     "unit": "ratio"
+    },
+    "gross_benefit": {
+     "value": null,
+     "basis": "evidence_backed",
+     "definition_key": "metric.gross_benefit",
+     "unit": "currency"
+    },
+    "estimated_total_value": {
+     "value": null,
+     "basis": "estimated",
+     "definition_key": "metric.estimated_total_value",
+     "unit": "currency"
+    },
+    "net_benefit": {
+     "value": null,
+     "basis": "evidence_backed",
+     "definition_key": "metric.net_benefit",
+     "unit": "currency"
+    },
+    "roi_pct": {
+     "value": null,
+     "basis": "evidence_backed",
+     "definition_key": "metric.roi",
+     "unit": "percent"
+    },
+    "verified_savings": {
+     "value": null,
+     "basis": "evidence_backed",
+     "definition_key": "metric.verified_savings",
+     "unit": "currency"
+    },
+    "hours_saved": {
+     "value": 3065.7,
+     "basis": "measured",
+     "definition_key": "metric.hours_saved",
+     "unit": "hours",
+     "net": 2364.9
+    },
+    "cost_per_successful_task": {
+     "value": null,
+     "basis": "measured",
+     "definition_key": "metric.cost_per_successful_task",
+     "unit": "currency"
+    }
+   },
+   "roi": null
+  },
+  "trend": {
+   "rows": [
+    {
+     "date": "2026-07-03",
+     "spend": 50.37,
+     "requests": 221,
+     "tokens": 12647361,
+     "active_users": 5,
+     "errors": 0
+    },
+    {
+     "date": "2026-07-04",
+     "spend": 4.77,
+     "requests": 20,
+     "tokens": 1195635,
+     "active_users": 3,
+     "errors": 0
+    },
+    {
+     "date": "2026-07-05",
+     "spend": 9.66,
+     "requests": 42,
+     "tokens": 2454788,
+     "active_users": 5,
+     "errors": 0
+    },
+    {
+     "date": "2026-07-06",
+     "spend": 53.05,
+     "requests": 238,
+     "tokens": 13810008,
+     "active_users": 8,
+     "errors": 3
+    },
+    {
+     "date": "2026-07-07",
+     "spend": 45.5,
+     "requests": 225,
+     "tokens": 11311845,
+     "active_users": 8,
+     "errors": 3
+    },
+    {
+     "date": "2026-07-08",
+     "spend": 59.48,
+     "requests": 258,
+     "tokens": 15580093,
+     "active_users": 8,
+     "errors": 2
+    },
+    {
+     "date": "2026-07-09",
+     "spend": 62.46,
+     "requests": 295,
+     "tokens": 15585824,
+     "active_users": 8,
+     "errors": 3
+    },
+    {
+     "date": "2026-07-10",
+     "spend": 64.89,
+     "requests": 285,
+     "tokens": 16366602,
+     "active_users": 8,
+     "errors": 0
+    },
+    {
+     "date": "2026-07-11",
+     "spend": 10.37,
+     "requests": 44,
+     "tokens": 2858669,
+     "active_users": 7,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-12",
+     "spend": 7.98,
+     "requests": 38,
+     "tokens": 2057446,
+     "active_users": 5,
+     "errors": 0
+    },
+    {
+     "date": "2026-07-13",
+     "spend": 66.47,
+     "requests": 281,
+     "tokens": 17290375,
+     "active_users": 11,
+     "errors": 2
+    },
+    {
+     "date": "2026-07-14",
+     "spend": 72.65,
+     "requests": 331,
+     "tokens": 18153040,
+     "active_users": 13,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-15",
+     "spend": 63.59,
+     "requests": 270,
+     "tokens": 16808801,
+     "active_users": 14,
+     "errors": 2
+    },
+    {
+     "date": "2026-07-16",
+     "spend": 78.67,
+     "requests": 333,
+     "tokens": 20205263,
+     "active_users": 15,
+     "errors": 2
+    },
+    {
+     "date": "2026-07-17",
+     "spend": 62.29,
+     "requests": 297,
+     "tokens": 15358237,
+     "active_users": 16,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-18",
+     "spend": 10.75,
+     "requests": 56,
+     "tokens": 2262022,
+     "active_users": 7,
+     "errors": 0
+    },
+    {
+     "date": "2026-07-19",
+     "spend": 16.19,
+     "requests": 62,
+     "tokens": 4375600,
+     "active_users": 11,
+     "errors": 0
+    },
+    {
+     "date": "2026-07-20",
+     "spend": 74.54,
+     "requests": 349,
+     "tokens": 18135291,
+     "active_users": 16,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-21",
+     "spend": 59.96,
+     "requests": 287,
+     "tokens": 14576535,
+     "active_users": 16,
+     "errors": 3
+    },
+    {
+     "date": "2026-07-22",
+     "spend": 73.3,
+     "requests": 323,
+     "tokens": 19287591,
+     "active_users": 16,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-23",
+     "spend": 58.34,
+     "requests": 272,
+     "tokens": 14135117,
+     "active_users": 16,
+     "errors": 3
+    },
+    {
+     "date": "2026-07-24",
+     "spend": 69.02,
+     "requests": 327,
+     "tokens": 17118237,
+     "active_users": 17,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-25",
+     "spend": 18.94,
+     "requests": 73,
+     "tokens": 4910340,
+     "active_users": 11,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-26",
+     "spend": 11.08,
+     "requests": 52,
+     "tokens": 2985967,
+     "active_users": 14,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-27",
+     "spend": 50.29,
+     "requests": 233,
+     "tokens": 13310085,
+     "active_users": 17,
+     "errors": 2
+    },
+    {
+     "date": "2026-07-28",
+     "spend": 74.27,
+     "requests": 348,
+     "tokens": 18560589,
+     "active_users": 18,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-29",
+     "spend": 58.95,
+     "requests": 269,
+     "tokens": 14649828,
+     "active_users": 18,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-30",
+     "spend": 70.64,
+     "requests": 305,
+     "tokens": 17565384,
+     "active_users": 18,
+     "errors": 1
+    },
+    {
+     "date": "2026-07-31",
+     "spend": 78.78,
+     "requests": 352,
+     "tokens": 18967773,
+     "active_users": 19,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-01",
+     "spend": 17.76,
+     "requests": 72,
+     "tokens": 4866919,
+     "active_users": 10,
+     "errors": 0
+    },
+    {
+     "date": "2026-08-02",
+     "spend": 11.3,
+     "requests": 64,
+     "tokens": 2776012,
+     "active_users": 11,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-03",
+     "spend": 78.39,
+     "requests": 347,
+     "tokens": 19757230,
+     "active_users": 19,
+     "errors": 2
+    },
+    {
+     "date": "2026-08-04",
+     "spend": 88.31,
+     "requests": 394,
+     "tokens": 22611271,
+     "active_users": 19,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-05",
+     "spend": 75.34,
+     "requests": 319,
+     "tokens": 19154922,
+     "active_users": 19,
+     "errors": 0
+    },
+    {
+     "date": "2026-08-06",
+     "spend": 64.24,
+     "requests": 312,
+     "tokens": 15985894,
+     "active_users": 19,
+     "errors": 4
+    },
+    {
+     "date": "2026-08-07",
+     "spend": 73.68,
+     "requests": 346,
+     "tokens": 18068085,
+     "active_users": 18,
+     "errors": 2
+    },
+    {
+     "date": "2026-08-08",
+     "spend": 14.89,
+     "requests": 73,
+     "tokens": 3764715,
+     "active_users": 11,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-09",
+     "spend": 9.68,
+     "requests": 53,
+     "tokens": 2343794,
+     "active_users": 11,
+     "errors": 0
+    },
+    {
+     "date": "2026-08-10",
+     "spend": 86.59,
+     "requests": 388,
+     "tokens": 21697822,
+     "active_users": 19,
+     "errors": 0
+    },
+    {
+     "date": "2026-08-11",
+     "spend": 98.27,
+     "requests": 434,
+     "tokens": 24726624,
+     "active_users": 20,
+     "errors": 3
+    },
+    {
+     "date": "2026-08-12",
+     "spend": 85.86,
+     "requests": 389,
+     "tokens": 22192783,
+     "active_users": 21,
+     "errors": 8
+    },
+    {
+     "date": "2026-08-13",
+     "spend": 86.88,
+     "requests": 348,
+     "tokens": 22811154,
+     "active_users": 21,
+     "errors": 2
+    },
+    {
+     "date": "2026-08-14",
+     "spend": 68.55,
+     "requests": 326,
+     "tokens": 17738515,
+     "active_users": 21,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-15",
+     "spend": 18.33,
+     "requests": 83,
+     "tokens": 6152752,
+     "active_users": 15,
+     "errors": 2
+    },
+    {
+     "date": "2026-08-16",
+     "spend": 16.41,
+     "requests": 89,
+     "tokens": 4934694,
+     "active_users": 17,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-17",
+     "spend": 74.91,
+     "requests": 417,
+     "tokens": 23495606,
+     "active_users": 23,
+     "errors": 0
+    },
+    {
+     "date": "2026-08-18",
+     "spend": 65.28,
+     "requests": 358,
+     "tokens": 21054881,
+     "active_users": 23,
+     "errors": 2
+    },
+    {
+     "date": "2026-08-19",
+     "spend": 80.44,
+     "requests": 437,
+     "tokens": 25719258,
+     "active_users": 24,
+     "errors": 0
+    },
+    {
+     "date": "2026-08-20",
+     "spend": 72.15,
+     "requests": 394,
+     "tokens": 22427322,
+     "active_users": 23,
+     "errors": 3
+    },
+    {
+     "date": "2026-08-21",
+     "spend": 97.55,
+     "requests": 476,
+     "tokens": 32045249,
+     "active_users": 24,
+     "errors": 3
+    },
+    {
+     "date": "2026-08-22",
+     "spend": 17.1,
+     "requests": 90,
+     "tokens": 5807978,
+     "active_users": 18,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-23",
+     "spend": 23.65,
+     "requests": 122,
+     "tokens": 7801861,
+     "active_users": 19,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-24",
+     "spend": 87.61,
+     "requests": 481,
+     "tokens": 28474801,
+     "active_users": 24,
+     "errors": 7
+    },
+    {
+     "date": "2026-08-25",
+     "spend": 75.13,
+     "requests": 392,
+     "tokens": 23956000,
+     "active_users": 26,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-26",
+     "spend": 69.16,
+     "requests": 406,
+     "tokens": 22329707,
+     "active_users": 27,
+     "errors": 0
+    },
+    {
+     "date": "2026-08-27",
+     "spend": 59.72,
+     "requests": 360,
+     "tokens": 18715738,
+     "active_users": 25,
+     "errors": 2
+    },
+    {
+     "date": "2026-08-28",
+     "spend": 80.23,
+     "requests": 418,
+     "tokens": 25299008,
+     "active_users": 26,
+     "errors": 1
+    },
+    {
+     "date": "2026-08-29",
+     "spend": 17.37,
+     "requests": 101,
+     "tokens": 5153507,
+     "active_users": 16,
+     "errors": 0
+    },
+    {
+     "date": "2026-08-30",
+     "spend": 19.07,
+     "requests": 109,
+     "tokens": 6329047,
+     "active_users": 16,
+     "errors": 0
+    },
+    {
+     "date": "2026-08-31",
+     "spend": 67.62,
+     "requests": 374,
+     "tokens": 21702477,
+     "active_users": 26,
+     "errors": 0
+    },
+    {
+     "date": "2026-09-01",
+     "spend": 77.46,
+     "requests": 439,
+     "tokens": 24023377,
+     "active_users": 28,
+     "errors": 1
+    },
+    {
+     "date": "2026-09-02",
+     "spend": 83.27,
+     "requests": 482,
+     "tokens": 25609607,
+     "active_users": 29,
+     "errors": 0
+    },
+    {
+     "date": "2026-09-03",
+     "spend": 97.94,
+     "requests": 527,
+     "tokens": 30327306,
+     "active_users": 30,
+     "errors": 6
+    },
+    {
+     "date": "2026-09-04",
+     "spend": 82.58,
+     "requests": 465,
+     "tokens": 25080411,
+     "active_users": 27,
+     "errors": 4
+    },
+    {
+     "date": "2026-09-05",
+     "spend": 21.57,
+     "requests": 124,
+     "tokens": 6653271,
+     "active_users": 16,
+     "errors": 0
+    },
+    {
+     "date": "2026-09-06",
+     "spend": 13.74,
+     "requests": 93,
+     "tokens": 3727319,
+     "active_users": 14,
+     "errors": 1
+    },
+    {
+     "date": "2026-09-07",
+     "spend": 96.07,
+     "requests": 545,
+     "tokens": 29512298,
+     "active_users": 30,
+     "errors": 5
+    },
+    {
+     "date": "2026-09-08",
+     "spend": 87.44,
+     "requests": 500,
+     "tokens": 26275179,
+     "active_users": 29,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-09",
+     "spend": 85.72,
+     "requests": 481,
+     "tokens": 26698280,
+     "active_users": 27,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-10",
+     "spend": 93.96,
+     "requests": 527,
+     "tokens": 28563530,
+     "active_users": 29,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-11",
+     "spend": 94.05,
+     "requests": 546,
+     "tokens": 28301398,
+     "active_users": 29,
+     "errors": 4
+    },
+    {
+     "date": "2026-09-12",
+     "spend": 653.18,
+     "requests": 1378,
+     "tokens": 161209940,
+     "active_users": 15,
+     "errors": 320
+    },
+    {
+     "date": "2026-09-13",
+     "spend": 20.06,
+     "requests": 107,
+     "tokens": 6483454,
+     "active_users": 17,
+     "errors": 1
+    },
+    {
+     "date": "2026-09-14",
+     "spend": 96.01,
+     "requests": 525,
+     "tokens": 30088960,
+     "active_users": 30,
+     "errors": 6
+    },
+    {
+     "date": "2026-09-15",
+     "spend": 98.09,
+     "requests": 554,
+     "tokens": 29836885,
+     "active_users": 28,
+     "errors": 5
+    },
+    {
+     "date": "2026-09-16",
+     "spend": 83.15,
+     "requests": 474,
+     "tokens": 25548961,
+     "active_users": 29,
+     "errors": 1
+    },
+    {
+     "date": "2026-09-17",
+     "spend": 96.58,
+     "requests": 520,
+     "tokens": 30259907,
+     "active_users": 30,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-18",
+     "spend": 76.24,
+     "requests": 427,
+     "tokens": 22681122,
+     "active_users": 28,
+     "errors": 4
+    },
+    {
+     "date": "2026-09-19",
+     "spend": 18.98,
+     "requests": 101,
+     "tokens": 5573510,
+     "active_users": 15,
+     "errors": 2
+    },
+    {
+     "date": "2026-09-20",
+     "spend": 17.01,
+     "requests": 94,
+     "tokens": 5375629,
+     "active_users": 17,
+     "errors": 0
+    },
+    {
+     "date": "2026-09-21",
+     "spend": 84.48,
+     "requests": 486,
+     "tokens": 26375361,
+     "active_users": 28,
+     "errors": 3
+    },
+    {
+     "date": "2026-09-22",
+     "spend": 76.65,
+     "requests": 433,
+     "tokens": 23143667,
+     "active_users": 27,
+     "errors": 4
+    },
+    {
+     "date": "2026-09-23",
+     "spend": 86.89,
+     "requests": 463,
+     "tokens": 26253133,
+     "active_users": 25,
+     "errors": 0
+    },
+    {
+     "date": "2026-09-24",
+     "spend": 95.92,
+     "requests": 535,
+     "tokens": 30007793,
+     "active_users": 29,
+     "errors": 2
+    },
+    {
+     "date": "2026-09-25",
+     "spend": 82.77,
+     "requests": 456,
+     "tokens": 25358735,
+     "active_users": 27,
+     "errors": 2
+    },
+    {
+     "date": "2026-09-26",
+     "spend": 21.08,
+     "requests": 100,
+     "tokens": 6905538,
+     "active_users": 15,
+     "errors": 0
+    },
+    {
+     "date": "2026-09-27",
+     "spend": 13.6,
+     "requests": 84,
+     "tokens": 4196279,
+     "active_users": 15,
+     "errors": 0
+    },
+    {
+     "date": "2026-09-28",
+     "spend": 94.15,
+     "requests": 492,
+     "tokens": 28789255,
+     "active_users": 27,
+     "errors": 0
+    },
+    {
+     "date": "2026-09-29",
+     "spend": 90.38,
+     "requests": 500,
+     "tokens": 27137188,
+     "active_users": 28,
+     "errors": 2
+    },
+    {
+     "date": "2026-09-30",
+     "spend": 93.82,
+     "requests": 466,
+     "tokens": 29996323,
+     "active_users": 29,
+     "errors": 4
+    }
+   ],
+   "anomalies": [
+    {
+     "date": "2026-09-12",
+     "spend": 653.18,
+     "zscore": 8.45,
+     "typical": 66.35
+    }
+   ]
+  },
+  "adoption": {
+   "rows": [
+    {
+     "week_start": "2026-06-29",
+     "active_users": 5,
+     "eligible_users": 68,
+     "adoption_rate": 0.0735
+    },
+    {
+     "week_start": "2026-07-06",
+     "active_users": 8,
+     "eligible_users": 68,
+     "adoption_rate": 0.1176
+    },
+    {
+     "week_start": "2026-07-13",
+     "active_users": 16,
+     "eligible_users": 68,
+     "adoption_rate": 0.2353
+    },
+    {
+     "week_start": "2026-07-20",
+     "active_users": 18,
+     "eligible_users": 68,
+     "adoption_rate": 0.2647
+    },
+    {
+     "week_start": "2026-07-27",
+     "active_users": 19,
+     "eligible_users": 68,
+     "adoption_rate": 0.2794
+    },
+    {
+     "week_start": "2026-08-03",
+     "active_users": 19,
+     "eligible_users": 68,
+     "adoption_rate": 0.2794
+    },
+    {
+     "week_start": "2026-08-10",
+     "active_users": 23,
+     "eligible_users": 68,
+     "adoption_rate": 0.3382
+    },
+    {
+     "week_start": "2026-08-17",
+     "active_users": 26,
+     "eligible_users": 68,
+     "adoption_rate": 0.3824
+    },
+    {
+     "week_start": "2026-08-24",
+     "active_users": 29,
+     "eligible_users": 68,
+     "adoption_rate": 0.4265
+    },
+    {
+     "week_start": "2026-08-31",
+     "active_users": 30,
+     "eligible_users": 68,
+     "adoption_rate": 0.4412
+    },
+    {
+     "week_start": "2026-09-07",
+     "active_users": 30,
+     "eligible_users": 68,
+     "adoption_rate": 0.4412
+    },
+    {
+     "week_start": "2026-09-14",
+     "active_users": 30,
+     "eligible_users": 68,
+     "adoption_rate": 0.4412
+    },
+    {
+     "week_start": "2026-09-21",
+     "active_users": 30,
+     "eligible_users": 68,
+     "adoption_rate": 0.4412
+    },
+    {
+     "week_start": "2026-09-28",
+     "active_users": 30,
+     "eligible_users": 68,
+     "adoption_rate": 0.4412
+    }
+   ]
+  },
+  "breakdowns": {
+   "department": {
+    "dimension": "department",
+    "rows": [
+     {
+      "key": "sales",
+      "spend": 2877.89,
+      "share": 0.4819,
+      "input_tokens": 652860996,
+      "output_tokens": 14756481,
+      "cached_input_tokens": 24945000,
+      "requests": 13308,
+      "error_rate": 0.0888,
+      "avg_latency_ms": 2391.0,
+      "retries": 1076,
+      "active_users": 10,
+      "cost_per_request": 0.216252
+     },
+     {
+      "key": "engineering",
+      "spend": 2600.38,
+      "share": 0.4355,
+      "input_tokens": 859715117,
+      "output_tokens": 31578579,
+      "cached_input_tokens": 403298820,
+      "requests": 11036,
+      "error_rate": 0.0165,
+      "avg_latency_ms": 2385.0,
+      "retries": 81,
+      "active_users": 20,
+      "cost_per_request": 0.235627
+     },
+     {
+      "key": "unallocated",
+      "spend": 493.3,
+      "share": 0.0826,
+      "input_tokens": 118636432,
+      "output_tokens": 4865983,
+      "cached_input_tokens": 23726277,
+      "requests": 4038,
+      "error_rate": 0.0168,
+      "avg_latency_ms": 2401.0,
+      "retries": 72,
+      "active_users": 0,
+      "cost_per_request": 0.122165
+     }
+    ]
+   },
+   "provider": {
+    "dimension": "provider",
+    "rows": [
+     {
+      "key": "openai",
+      "spend": 5971.57,
+      "share": 1.0,
+      "input_tokens": 1631212545,
+      "output_tokens": 51201043,
+      "cached_input_tokens": 451970097,
+      "requests": 28382,
+      "error_rate": 0.0478,
+      "avg_latency_ms": 2391.0,
+      "retries": 1229,
+      "active_users": 30,
+      "cost_per_request": 0.2104
+     }
+    ]
+   },
+   "model": {
+    "dimension": "model",
+    "rows": [
+     {
+      "key": "openai/gpt-demo-large",
+      "spend": 5971.57,
+      "share": 1.0,
+      "input_tokens": 1631212545,
+      "output_tokens": 51201043,
+      "cached_input_tokens": 451970097,
+      "requests": 28382,
+      "error_rate": 0.0478,
+      "avg_latency_ms": 2391.0,
+      "retries": 1229,
+      "active_users": 30,
+      "cost_per_request": 0.2104
+     }
+    ]
+   },
+   "use_case": {
+    "dimension": "use_case",
+    "rows": [
+     {
+      "key": "sales_outreach",
+      "spend": 2877.89,
+      "share": 0.4819,
+      "input_tokens": 652860996,
+      "output_tokens": 14756481,
+      "cached_input_tokens": 24945000,
+      "requests": 13308,
+      "error_rate": 0.0888,
+      "avg_latency_ms": 2391.0,
+      "retries": 1076,
+      "active_users": 10,
+      "cost_per_request": 0.216252
+     },
+     {
+      "key": "code_review",
+      "spend": 1621.4,
+      "share": 0.2715,
+      "input_tokens": 531157823,
+      "output_tokens": 17854575,
+      "cached_input_tokens": 239020414,
+      "requests": 5565,
+      "error_rate": 0.019,
+      "avg_latency_ms": 2364.0,
+      "retries": 41,
+      "active_users": 20,
+      "cost_per_request": 0.291356
+     },
+     {
+      "key": "unallocated",
+      "spend": 1472.29,
+      "share": 0.2465,
+      "input_tokens": 447193726,
+      "output_tokens": 18589987,
+      "cached_input_tokens": 188004683,
+      "requests": 9509,
+      "error_rate": 0.0159,
+      "avg_latency_ms": 2401.0,
+      "retries": 112,
+      "active_users": 20,
+      "cost_per_request": 0.154831
+     }
+    ]
+   }
+  },
+  "budgets": {
+   "as_of": "2026-09-30",
+   "basis": "model_usage",
+   "rows": [
+    {
+     "budget_id": "bud_202609_engineering",
+     "department": "engineering",
+     "month": "2026-09-01",
+     "budget": 2000.0,
+     "spent": 1638.47,
+     "utilization": 0.8192,
+     "forecast": 1638.47,
+     "forecast_utilization": 0.8192,
+     "status": "warning"
+    },
+    {
+     "budget_id": "bud_202609_customer_support",
+     "department": "customer_support",
+     "month": "2026-09-01",
+     "budget": 150.0,
+     "spent": 38.71,
+     "utilization": 0.2581,
+     "forecast": 38.71,
+     "forecast_utilization": 0.2581,
+     "status": "ok"
+    },
+    {
+     "budget_id": "bud_202609_sales",
+     "department": "sales",
+     "month": "2026-09-01",
+     "budget": 1400.0,
+     "spent": 1633.27,
+     "utilization": 1.1666,
+     "forecast": 1633.27,
+     "forecast_utilization": 1.1666,
+     "status": "exceeded"
+    },
+    {
+     "budget_id": "bud_202609_marketing",
+     "department": "marketing",
+     "month": "2026-09-01",
+     "budget": 300.0,
+     "spent": 271.46,
+     "utilization": 0.9049,
+     "forecast": 271.46,
+     "forecast_utilization": 0.9049,
+     "status": "warning"
+    },
+    {
+     "budget_id": "bud_202609_finance_operations",
+     "department": "finance_operations",
+     "month": "2026-09-01",
+     "budget": 50.0,
+     "spent": 0.18,
+     "utilization": 0.0035,
+     "forecast": 0.18,
+     "forecast_utilization": 0.0035,
+     "status": "ok"
+    },
+    {
+     "budget_id": "bud_202609_org",
+     "department": "organization",
+     "month": "2026-09-01",
+     "budget": 5000.0,
+     "spent": 3759.12,
+     "utilization": 0.7518,
+     "forecast": 3759.12,
+     "forecast_utilization": 0.7518,
+     "status": "ok"
+    }
+   ]
+  }
+ },
+ "departments": {
+  "rows": [
+   {
+    "department": "engineering",
+    "spend": 4479.58,
+    "total_cost": 20644.1,
+    "tokens": 1744993840,
+    "requests": 22709,
+    "active_users": 20,
+    "tasks_completed": 2139,
+    "hours_saved": 760.5,
+    "net_hours_saved": 697.4,
+    "quality": 0.8589,
+    "success_rate": 0.9369,
+    "gross_benefit": 27887.1,
+    "estimated_time_value": 57036.56,
+    "roi_status": "ok",
+    "roi_pct": 35.1,
+    "net_benefit": 7243.0,
+    "insufficient_use_cases": []
+   },
+   {
+    "department": "customer_support",
+    "spend": 103.15,
+    "total_cost": 17366.45,
+    "tokens": 213519935,
+    "requests": 15025,
+    "active_users": 14,
+    "tasks_completed": 6538,
+    "hours_saved": 899.6,
+    "net_hours_saved": 838.8,
+    "quality": 0.8996,
+    "success_rate": 0.9521,
+    "gross_benefit": 58709.67,
+    "estimated_time_value": 34184.98,
+    "roi_status": "ok",
+    "roi_pct": 238.1,
+    "net_benefit": 41343.22,
+    "insufficient_use_cases": []
+   },
+   {
+    "department": "sales",
+    "spend": 2877.89,
+    "total_cost": 54845.0,
+    "tokens": 667617477,
+    "requests": 13308,
+    "active_users": 10,
+    "tasks_completed": 3565,
+    "hours_saved": 200.8,
+    "net_hours_saved": 30.7,
+    "quality": 0.7995,
+    "success_rate": 0.8982,
+    "gross_benefit": 4403.23,
+    "estimated_time_value": 11045.35,
+    "roi_status": "ok",
+    "roi_pct": -92.0,
+    "net_benefit": -50441.77,
+    "insufficient_use_cases": []
+   },
+   {
+    "department": "marketing",
+    "spend": 703.05,
+    "total_cost": 25425.3,
+    "tokens": 208355908,
+    "requests": 3875,
+    "active_users": 7,
+    "tasks_completed": 1340,
+    "hours_saved": 1203.3,
+    "net_hours_saved": 796.9,
+    "quality": 0.7379,
+    "success_rate": 0.8945,
+    "gross_benefit": 7338.71,
+    "estimated_time_value": 60164.16,
+    "roi_status": "ok",
+    "roi_pct": -71.1,
+    "net_benefit": -18086.59,
+    "insufficient_use_cases": []
+   },
+   {
+    "department": "finance_operations",
+    "spend": 1.06,
+    "total_cost": 6024.98,
+    "tokens": 271857,
+    "requests": 25,
+    "active_users": 5,
+    "tasks_completed": 11,
+    "hours_saved": 1.5,
+    "net_hours_saved": 1.0,
+    "quality": 0.8352,
+    "success_rate": 1.0,
+    "gross_benefit": 0.0,
+    "estimated_time_value": 72.69,
+    "roi_status": "insufficient_evidence",
+    "roi_pct": null,
+    "net_benefit": null,
+    "insufficient_use_cases": [
+     "invoice_matching"
+    ]
+   },
+   {
+    "department": "unallocated",
+    "spend": 493.3,
+    "total_cost": 493.3,
+    "tokens": 123502415,
+    "requests": 4038,
+    "active_users": 0,
+    "tasks_completed": null,
+    "hours_saved": null,
+    "net_hours_saved": null,
+    "quality": null,
+    "success_rate": null,
+    "gross_benefit": 0.0,
+    "estimated_time_value": null,
+    "roi_status": "unallocated",
+    "roi_pct": null,
+    "net_benefit": null,
+    "insufficient_use_cases": []
+   }
+  ]
+ },
+ "use_cases": {
+  "rows": [
+   {
+    "use_case": "support_triage",
+    "name_key": "use_case.support_triage",
+    "department": "customer_support",
+    "study_design": "randomized",
+    "task_complexity": "simple",
+    "tasks_ai": 6867,
+    "quality_ai": 0.8996,
+    "success_rate_ai": 0.9521,
+    "decision": "continue",
+    "roi_status": "ok",
+    "roi_pct": 238.1,
+    "total_cost": 17366.45,
+    "gross_benefit": 58709.67,
+    "net_benefit": 41343.22,
+    "hours_saved": 899.6,
+    "cost_per_task_delta": -2.68,
+    "causal": true
+   },
+   {
+    "use_case": "code_review",
+    "name_key": "use_case.code_review",
+    "department": "engineering",
+    "study_design": "control_group",
+    "task_complexity": "complex",
+    "tasks_ai": 2283,
+    "quality_ai": 0.8589,
+    "success_rate_ai": 0.9369,
+    "decision": "continue",
+    "roi_status": "ok",
+    "roi_pct": 70.7,
+    "total_cost": 16332.55,
+    "gross_benefit": 27887.1,
+    "net_benefit": 11554.55,
+    "hours_saved": 760.5,
+    "cost_per_task_delta": -20.91,
+    "causal": true
+   },
+   {
+    "use_case": "sales_outreach",
+    "name_key": "use_case.sales_outreach",
+    "department": "sales",
+    "study_design": "control_group",
+    "task_complexity": "simple",
+    "tasks_ai": 3969,
+    "quality_ai": 0.7995,
+    "success_rate_ai": 0.8982,
+    "decision": "optimize",
+    "roi_status": "ok",
+    "roi_pct": -92.0,
+    "total_cost": 54845.0,
+    "gross_benefit": 4403.23,
+    "net_benefit": -50441.77,
+    "hours_saved": 200.8,
+    "cost_per_task_delta": 12.51,
+    "causal": true
+   },
+   {
+    "use_case": "marketing_content",
+    "name_key": "use_case.marketing_content",
+    "department": "marketing",
+    "study_design": "control_group",
+    "task_complexity": "standard",
+    "tasks_ai": 1498,
+    "quality_ai": 0.7379,
+    "success_rate_ai": 0.8945,
+    "decision": "selective",
+    "roi_status": "ok",
+    "roi_pct": -71.1,
+    "total_cost": 25425.3,
+    "gross_benefit": 7338.71,
+    "net_benefit": -18086.59,
+    "hours_saved": 1203.3,
+    "cost_per_task_delta": -21.46,
+    "causal": true
+   },
+   {
+    "use_case": "invoice_matching",
+    "name_key": "use_case.invoice_matching",
+    "department": "finance_operations",
+    "study_design": "observational",
+    "task_complexity": "standard",
+    "tasks_ai": 11,
+    "quality_ai": 0.8352,
+    "success_rate_ai": 1.0,
+    "decision": "experiment",
+    "roi_status": "insufficient_evidence",
+    "roi_pct": null,
+    "total_cost": 6024.98,
+    "gross_benefit": 0.0,
+    "net_benefit": null,
+    "hours_saved": 1.5,
+    "cost_per_task_delta": null,
+    "causal": false
+   }
+  ]
+ },
+ "use_case_details": {
+  "support_triage": {
+   "use_case": "support_triage",
+   "name_key": "use_case.support_triage",
+   "department": "customer_support",
+   "task_complexity": "simple",
+   "study_design": "randomized",
+   "data_source": "Helpdesk export + randomized routing log",
+   "measurement_period": {
+    "start": "2026-07-03",
+    "end": "2026-09-30"
+   },
+   "documented_baseline_minutes": null,
+   "labour_rate": 38.0,
+   "tasks_ai": 6867,
+   "quality_ai": 0.8996,
+   "success_rate_ai": 0.9521,
+   "roi": {
+    "status": "ok",
+    "reasons": [],
+    "period_days": 90,
+    "costs": {
+     "model_usage": 103.15,
+     "subscription": 0.0,
+     "infrastructure": 0.0,
+     "implementation": 12000.0,
+     "maintenance": 2641.94,
+     "human_review": 2621.37,
+     "rework": 0.0,
+     "other_operating": 0.0,
+     "total": 17366.45
+    },
+    "one_off_cost": 12000.0,
+    "recurring_cost": 5366.45,
+    "benefits": {
+     "verified_savings": 17612.9,
+     "supported_contribution": 0.0,
+     "supported_cost_avoidance": 41096.77,
+     "verified_component": 17612.9,
+     "supported_component": 41096.77,
+     "gross": 58709.67,
+     "estimated_excluded": 0.0,
+     "counted": [
+      {
+       "id": "ben_001",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 5612.9,
+       "verification_status": "verified",
+       "evidence_key": "support_triage:bpo_invoices:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.95,
+       "source": "AP ledger, vendor BPO-01"
+      },
+      {
+       "id": "ben_009",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 6000.0,
+       "verification_status": "verified",
+       "evidence_key": "support_triage:bpo_invoices:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.95,
+       "source": "AP ledger, vendor BPO-01"
+      },
+      {
+       "id": "ben_017",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 6000.0,
+       "verification_status": "verified",
+       "evidence_key": "support_triage:bpo_invoices:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.95,
+       "source": "AP ledger, vendor BPO-01"
+      },
+      {
+       "id": "ben_002",
+       "use_case": "support_triage",
+       "category": "cost_avoidance",
+       "amount": 13096.77,
+       "verification_status": "supported",
+       "evidence_key": "support_triage:overflow_capacity:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.75,
+       "source": "RCT deflection × contract rate"
+      },
+      {
+       "id": "ben_010",
+       "use_case": "support_triage",
+       "category": "cost_avoidance",
+       "amount": 14000.0,
+       "verification_status": "supported",
+       "evidence_key": "support_triage:overflow_capacity:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.75,
+       "source": "RCT deflection × contract rate"
+      },
+      {
+       "id": "ben_018",
+       "use_case": "support_triage",
+       "category": "cost_avoidance",
+       "amount": 14000.0,
+       "verification_status": "supported",
+       "evidence_key": "support_triage:overflow_capacity:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.75,
+       "source": "RCT deflection × contract rate"
+      }
+     ],
+     "excluded": [
+      {
+       "id": "ben_003",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 14032.26,
+       "verification_status": "estimated",
+       "evidence_key": "support_triage:overflow_capacity:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.4,
+       "source": "Team lead estimate",
+       "reason": "duplicate_evidence"
+      },
+      {
+       "id": "ben_011",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 15000.0,
+       "verification_status": "estimated",
+       "evidence_key": "support_triage:overflow_capacity:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.4,
+       "source": "Team lead estimate",
+       "reason": "duplicate_evidence"
+      },
+      {
+       "id": "ben_019",
+       "use_case": "support_triage",
+       "category": "financial_savings",
+       "amount": 15000.0,
+       "verification_status": "estimated",
+       "evidence_key": "support_triage:overflow_capacity:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.4,
+       "source": "Team lead estimate",
+       "reason": "duplicate_evidence"
+      }
+     ]
+    },
+    "gross_benefit": 58709.67,
+    "net_benefit": 41343.22,
+    "roi_pct": 238.1,
+    "benefit_cost_ratio": 3.38,
+    "cost_per_successful_task": 2.66,
+    "successful_tasks": 6538,
+    "break_even_tasks": 1710.0,
+    "payback_months": 0.7,
+    "hours": {
+     "gross": 899.6,
+     "net": 838.8,
+     "baseline_source": "control_group",
+     "baseline_minutes_per_task": 13.9,
+     "ai_minutes_per_task": 6.04
+    },
+    "estimated_time_value": 34184.98,
+    "scenarios": {
+     "conservative": {
+      "name": "conservative",
+      "gross_benefit": 46380.64,
+      "total_cost": 19103.09,
+      "net_benefit": 27277.55,
+      "roi_pct": 142.8,
+      "includes_estimates": false
+     },
+     "expected": {
+      "name": "expected",
+      "gross_benefit": 58709.67,
+      "total_cost": 17366.45,
+      "net_benefit": 41343.22,
+      "roi_pct": 238.1,
+      "includes_estimates": false
+     },
+     "optimistic": {
+      "name": "optimistic",
+      "gross_benefit": 75802.16,
+      "total_cost": 17366.45,
+      "net_benefit": 58435.71,
+      "roi_pct": 336.5,
+      "includes_estimates": true
+     }
+    }
+   },
+   "comparison": {
+    "use_case": "support_triage",
+    "study_design": "randomized",
+    "causal": true,
+    "ai": {
+     "n": 6867,
+     "first_day": "2026-07-03",
+     "last_day": "2026-09-30",
+     "mean_minutes": 6.04,
+     "mean_total_minutes": 6.93,
+     "success_rate": 0.9521,
+     "error_rate": 0.0304,
+     "rework_rate": 0.0501,
+     "quality": 0.8996,
+     "csat": 4.35,
+     "tasks_per_hour": 8.652,
+     "labour_cost": 30160.47,
+     "ai_cost": 14745.08,
+     "total_cost": 44905.55,
+     "cost_per_completed_task": 6.87
+    },
+    "non_ai": {
+     "n": 1894,
+     "first_day": "2026-07-03",
+     "last_day": "2026-09-30",
+     "mean_minutes": 13.9,
+     "mean_total_minutes": 14.26,
+     "success_rate": 0.9456,
+     "error_rate": 0.0296,
+     "rework_rate": 0.0502,
+     "quality": 0.8893,
+     "csat": 4.17,
+     "tasks_per_hour": 4.207,
+     "labour_cost": 17109.61,
+     "ai_cost": 0.0,
+     "total_cost": 17109.61,
+     "cost_per_completed_task": 9.55
+    },
+    "differences": {
+     "total_minutes": {
+      "estimate": -7.33,
+      "low": -7.53,
+      "high": -7.13,
+      "significant": true
+     },
+     "quality": {
+      "estimate": 0.0103,
+      "low": 0.0078,
+      "high": 0.0128,
+      "significant": true
+     },
+     "success_rate": {
+      "estimate": 0.0065,
+      "low": -0.0049,
+      "high": 0.0179,
+      "significant": false
+     },
+     "error_rate": {
+      "estimate": 0.0009,
+      "low": -0.0078,
+      "high": 0.0095,
+      "significant": false
+     }
+    },
+    "cost_per_task_delta": -2.68,
+    "estimated_net_benefit": 17552.66,
+    "segments": [
+     {
+      "task_type": "standard",
+      "n_ai": 6867,
+      "n_non_ai": 1894,
+      "total_minutes": {
+       "estimate": -7.33,
+       "low": -7.53,
+       "high": -7.13,
+       "significant": true
+      },
+      "quality": {
+       "estimate": 0.0103,
+       "low": 0.0078,
+       "high": 0.0128,
+       "significant": true
+      },
+      "favourable": true
+     }
+    ],
+    "decision": "continue",
+    "reasons": [
+     "positive_measured_value"
+    ]
+   }
+  },
+  "code_review": {
+   "use_case": "code_review",
+   "name_key": "use_case.code_review",
+   "department": "engineering",
+   "task_complexity": "complex",
+   "study_design": "control_group",
+   "data_source": "Git provider PR analytics, two matched teams",
+   "measurement_period": {
+    "start": "2026-07-03",
+    "end": "2026-09-30"
+   },
+   "documented_baseline_minutes": null,
+   "labour_rate": 75.0,
+   "tasks_ai": 2283,
+   "quality_ai": 0.8589,
+   "success_rate_ai": 0.9369,
+   "roi": {
+    "status": "ok",
+    "reasons": [],
+    "period_days": 90,
+    "costs": {
+     "model_usage": 2428.36,
+     "subscription": 0.0,
+     "infrastructure": 1174.19,
+     "implementation": 8000.0,
+     "maintenance": 0.0,
+     "human_review": 3025.7,
+     "rework": 1704.3,
+     "other_operating": 0.0,
+     "total": 16332.55
+    },
+    "one_off_cost": 8000.0,
+    "recurring_cost": 8332.55,
+    "benefits": {
+     "verified_savings": 27887.1,
+     "supported_contribution": 0.0,
+     "supported_cost_avoidance": 0.0,
+     "verified_component": 27887.1,
+     "supported_component": 0.0,
+     "gross": 27887.1,
+     "estimated_excluded": 0.0,
+     "counted": [
+      {
+       "id": "ben_004",
+       "use_case": "code_review",
+       "category": "financial_savings",
+       "amount": 8887.1,
+       "verification_status": "verified",
+       "evidence_key": "code_review:contractor_hours:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.9,
+       "source": "Contractor invoices"
+      },
+      {
+       "id": "ben_012",
+       "use_case": "code_review",
+       "category": "financial_savings",
+       "amount": 9500.0,
+       "verification_status": "verified",
+       "evidence_key": "code_review:contractor_hours:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.9,
+       "source": "Contractor invoices"
+      },
+      {
+       "id": "ben_020",
+       "use_case": "code_review",
+       "category": "financial_savings",
+       "amount": 9500.0,
+       "verification_status": "verified",
+       "evidence_key": "code_review:contractor_hours:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.9,
+       "source": "Contractor invoices"
+      }
+     ],
+     "excluded": []
+    },
+    "gross_benefit": 27887.1,
+    "net_benefit": 11554.55,
+    "roi_pct": 70.7,
+    "benefit_cost_ratio": 1.71,
+    "cost_per_successful_task": 7.64,
+    "successful_tasks": 2139,
+    "break_even_tasks": 947.0,
+    "payback_months": 1.2,
+    "hours": {
+     "gross": 760.5,
+     "net": 697.4,
+     "baseline_source": "control_group",
+     "baseline_minutes_per_task": 54.45,
+     "ai_minutes_per_task": 34.46
+    },
+    "estimated_time_value": 57036.56,
+    "scenarios": {
+     "conservative": {
+      "name": "conservative",
+      "gross_benefit": 27887.1,
+      "total_cost": 17965.81,
+      "net_benefit": 9921.29,
+      "roi_pct": 55.2,
+      "includes_estimates": false
+     },
+     "expected": {
+      "name": "expected",
+      "gross_benefit": 27887.1,
+      "total_cost": 16332.55,
+      "net_benefit": 11554.55,
+      "roi_pct": 70.7,
+      "includes_estimates": false
+     },
+     "optimistic": {
+      "name": "optimistic",
+      "gross_benefit": 56405.38,
+      "total_cost": 16332.55,
+      "net_benefit": 40072.83,
+      "roi_pct": 245.4,
+      "includes_estimates": true
+     }
+    }
+   },
+   "comparison": {
+    "use_case": "code_review",
+    "study_design": "control_group",
+    "causal": true,
+    "ai": {
+     "n": 2283,
+     "first_day": "2026-07-03",
+     "last_day": "2026-09-30",
+     "mean_minutes": 34.46,
+     "mean_total_minutes": 41.19,
+     "success_rate": 0.9369,
+     "error_rate": 0.0442,
+     "rework_rate": 0.2247,
+     "quality": 0.8589,
+     "csat": null,
+     "tasks_per_hour": 1.457,
+     "labour_cost": 117558.64,
+     "ai_cost": 11602.55,
+     "total_cost": 129161.19,
+     "cost_per_completed_task": 60.38
+    },
+    "non_ai": {
+     "n": 873,
+     "first_day": "2026-07-03",
+     "last_day": "2026-09-30",
+     "mean_minutes": 54.45,
+     "mean_total_minutes": 59.52,
+     "success_rate": 0.9152,
+     "error_rate": 0.047,
+     "rework_rate": 0.1684,
+     "quality": 0.8501,
+     "csat": null,
+     "tasks_per_hour": 1.008,
+     "labour_cost": 64955.03,
+     "ai_cost": 0.0,
+     "total_cost": 64955.03,
+     "cost_per_completed_task": 81.3
+    },
+    "differences": {
+     "total_minutes": {
+      "estimate": -18.33,
+      "low": -19.5,
+      "high": -17.16,
+      "significant": true
+     },
+     "quality": {
+      "estimate": 0.0088,
+      "low": 0.0041,
+      "high": 0.0135,
+      "significant": true
+     },
+     "success_rate": {
+      "estimate": 0.0217,
+      "low": 0.0007,
+      "high": 0.0427,
+      "significant": true
+     },
+     "error_rate": {
+      "estimate": -0.0027,
+      "low": -0.0191,
+      "high": 0.0136,
+      "significant": false
+     }
+    },
+    "cost_per_task_delta": -20.91,
+    "estimated_net_benefit": 44729.67,
+    "segments": [
+     {
+      "task_type": "standard",
+      "n_ai": 2283,
+      "n_non_ai": 873,
+      "total_minutes": {
+       "estimate": -18.33,
+       "low": -19.5,
+       "high": -17.16,
+       "significant": true
+      },
+      "quality": {
+       "estimate": 0.0088,
+       "low": 0.0041,
+       "high": 0.0135,
+       "significant": true
+      },
+      "favourable": true
+     }
+    ],
+    "decision": "continue",
+    "reasons": [
+     "positive_measured_value"
+    ]
+   }
+  },
+  "sales_outreach": {
+   "use_case": "sales_outreach",
+   "name_key": "use_case.sales_outreach",
+   "department": "sales",
+   "task_complexity": "simple",
+   "study_design": "control_group",
+   "data_source": "CRM activity log, holdout reps",
+   "measurement_period": {
+    "start": "2026-07-03",
+    "end": "2026-09-30"
+   },
+   "documented_baseline_minutes": null,
+   "labour_rate": 55.0,
+   "tasks_ai": 3969,
+   "quality_ai": 0.7995,
+   "success_rate_ai": 0.8982,
+   "roi": {
+    "status": "ok",
+    "reasons": [],
+    "period_days": 90,
+    "costs": {
+     "model_usage": 2877.89,
+     "subscription": 17612.9,
+     "infrastructure": 0.0,
+     "implementation": 25000.0,
+     "maintenance": 0.0,
+     "human_review": 9114.43,
+     "rework": 239.77,
+     "other_operating": 0.0,
+     "total": 54845.0
+    },
+    "one_off_cost": 25000.0,
+    "recurring_cost": 29845.0,
+    "benefits": {
+     "verified_savings": 0.0,
+     "supported_contribution": 4403.23,
+     "supported_cost_avoidance": 0.0,
+     "verified_component": 0.0,
+     "supported_component": 4403.23,
+     "gross": 4403.23,
+     "estimated_excluded": 35225.81,
+     "counted": [
+      {
+       "id": "ben_005",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 1403.23,
+       "verification_status": "supported",
+       "evidence_key": "sales_outreach:holdout_margin:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.6,
+       "source": "Holdout reps, gross margin"
+      },
+      {
+       "id": "ben_013",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 1500.0,
+       "verification_status": "supported",
+       "evidence_key": "sales_outreach:holdout_margin:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.6,
+       "source": "Holdout reps, gross margin"
+      },
+      {
+       "id": "ben_021",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 1500.0,
+       "verification_status": "supported",
+       "evidence_key": "sales_outreach:holdout_margin:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.6,
+       "source": "Holdout reps, gross margin"
+      }
+     ],
+     "excluded": [
+      {
+       "id": "ben_006",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 11225.81,
+       "verification_status": "unverified",
+       "evidence_key": "sales_outreach:pipeline_influence:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.2,
+       "source": "Vendor dashboard 'influenced pipeline'",
+       "reason": "unverified"
+      },
+      {
+       "id": "ben_014",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 12000.0,
+       "verification_status": "unverified",
+       "evidence_key": "sales_outreach:pipeline_influence:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.2,
+       "source": "Vendor dashboard 'influenced pipeline'",
+       "reason": "unverified"
+      },
+      {
+       "id": "ben_022",
+       "use_case": "sales_outreach",
+       "category": "incremental_contribution",
+       "amount": 12000.0,
+       "verification_status": "unverified",
+       "evidence_key": "sales_outreach:pipeline_influence:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.2,
+       "source": "Vendor dashboard 'influenced pipeline'",
+       "reason": "unverified"
+      }
+     ]
+    },
+    "gross_benefit": 4403.23,
+    "net_benefit": -50441.77,
+    "roi_pct": -92.0,
+    "benefit_cost_ratio": 0.08,
+    "cost_per_successful_task": 15.38,
+    "successful_tasks": 3565,
+    "break_even_tasks": null,
+    "payback_months": null,
+    "hours": {
+     "gross": 200.8,
+     "net": 30.7,
+     "baseline_source": "control_group",
+     "baseline_minutes_per_task": 12.01,
+     "ai_minutes_per_task": 8.98
+    },
+    "estimated_time_value": 11045.35,
+    "scenarios": {
+     "conservative": {
+      "name": "conservative",
+      "gross_benefit": 3082.26,
+      "total_cost": 60329.5,
+      "net_benefit": -57247.24,
+      "roi_pct": -94.9,
+      "includes_estimates": false
+     },
+     "expected": {
+      "name": "expected",
+      "gross_benefit": 4403.23,
+      "total_cost": 54845.0,
+      "net_benefit": -50441.77,
+      "roi_pct": -92.0,
+      "includes_estimates": false
+     },
+     "optimistic": {
+      "name": "optimistic",
+      "gross_benefit": 27538.81,
+      "total_cost": 54845.0,
+      "net_benefit": -27306.19,
+      "roi_pct": -49.8,
+      "includes_estimates": true
+     }
+    }
+   },
+   "comparison": {
+    "use_case": "sales_outreach",
+    "study_design": "control_group",
+    "causal": true,
+    "ai": {
+     "n": 3969,
+     "first_day": "2026-07-03",
+     "last_day": "2026-09-30",
+     "mean_minutes": 8.98,
+     "mean_total_minutes": 11.9,
+     "success_rate": 0.8982,
+     "error_rate": 0.0378,
+     "rework_rate": 0.0998,
+     "quality": 0.7995,
+     "csat": null,
+     "tasks_per_hour": 5.044,
+     "labour_cost": 43280.04,
+     "ai_cost": 45490.79,
+     "total_cost": 88770.83,
+     "cost_per_completed_task": 24.9
+    },
+    "non_ai": {
+     "n": 1281,
+     "first_day": "2026-07-03",
+     "last_day": "2026-09-30",
+     "mean_minutes": 12.01,
+     "mean_total_minutes": 12.36,
+     "success_rate": 0.9141,
+     "error_rate": 0.0406,
+     "rework_rate": 0.0843,
+     "quality": 0.8062,
+     "csat": null,
+     "tasks_per_hour": 4.854,
+     "labour_cost": 14514.51,
+     "ai_cost": 0.0,
+     "total_cost": 14514.51,
+     "cost_per_completed_task": 12.39
+    },
+    "differences": {
+     "total_minutes": {
+      "estimate": -0.46,
+      "low": -0.69,
+      "high": -0.24,
+      "significant": true
+     },
+     "quality": {
+      "estimate": -0.0067,
+      "low": -0.0111,
+      "high": -0.0023,
+      "significant": true
+     },
+     "success_rate": {
+      "estimate": -0.0159,
+      "low": -0.0339,
+      "high": 0.0021,
+      "significant": false
+     },
+     "error_rate": {
+      "estimate": -0.0028,
+      "low": -0.0151,
+      "high": 0.0095,
+      "significant": false
+     }
+    },
+    "cost_per_task_delta": 12.51,
+    "estimated_net_benefit": -44582.76,
+    "segments": [
+     {
+      "task_type": "standard",
+      "n_ai": 3969,
+      "n_non_ai": 1281,
+      "total_minutes": {
+       "estimate": -0.46,
+       "low": -0.69,
+       "high": -0.24,
+       "significant": true
+      },
+      "quality": {
+       "estimate": -0.0067,
+       "low": -0.0111,
+       "high": -0.0023,
+       "significant": true
+      },
+      "favourable": true
+     }
+    ],
+    "decision": "optimize",
+    "reasons": [
+     "cost_exceeds_value"
+    ]
+   }
+  },
+  "marketing_content": {
+   "use_case": "marketing_content",
+   "name_key": "use_case.marketing_content",
+   "department": "marketing",
+   "task_complexity": "standard",
+   "study_design": "control_group",
+   "data_source": "CMS workflow timestamps + editor scoring",
+   "measurement_period": {
+    "start": "2026-07-03",
+    "end": "2026-09-30"
+   },
+   "documented_baseline_minutes": null,
+   "labour_rate": 50.0,
+   "tasks_ai": 1498,
+   "quality_ai": 0.7379,
+   "success_rate_ai": 0.8945,
+   "roi": {
+    "status": "ok",
+    "reasons": [],
+    "period_days": 90,
+    "costs": {
+     "model_usage": 703.05,
+     "subscription": 4403.23,
+     "infrastructure": 0.0,
+     "implementation": 0.0,
+     "maintenance": 0.0,
+     "human_review": 6571.88,
+     "rework": 13747.14,
+     "other_operating": 0.0,
+     "total": 25425.3
+    },
+    "one_off_cost": 0.0,
+    "recurring_cost": 25425.3,
+    "benefits": {
+     "verified_savings": 0.0,
+     "supported_contribution": 0.0,
+     "supported_cost_avoidance": 7338.71,
+     "verified_component": 0.0,
+     "supported_component": 7338.71,
+     "gross": 7338.71,
+     "estimated_excluded": 0.0,
+     "counted": [
+      {
+       "id": "ben_007",
+       "use_case": "marketing_content",
+       "category": "cost_avoidance",
+       "amount": 2338.71,
+       "verification_status": "supported",
+       "evidence_key": "marketing_content:freelance:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.6,
+       "source": "Purchase orders vs. plan"
+      },
+      {
+       "id": "ben_015",
+       "use_case": "marketing_content",
+       "category": "cost_avoidance",
+       "amount": 2500.0,
+       "verification_status": "supported",
+       "evidence_key": "marketing_content:freelance:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.6,
+       "source": "Purchase orders vs. plan"
+      },
+      {
+       "id": "ben_023",
+       "use_case": "marketing_content",
+       "category": "cost_avoidance",
+       "amount": 2500.0,
+       "verification_status": "supported",
+       "evidence_key": "marketing_content:freelance:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.6,
+       "source": "Purchase orders vs. plan"
+      }
+     ],
+     "excluded": []
+    },
+    "gross_benefit": 7338.71,
+    "net_benefit": -18086.59,
+    "roi_pct": -71.1,
+    "benefit_cost_ratio": 0.29,
+    "cost_per_successful_task": 18.97,
+    "successful_tasks": 1340,
+    "break_even_tasks": null,
+    "payback_months": null,
+    "hours": {
+     "gross": 1203.3,
+     "net": 796.9,
+     "baseline_source": "control_group",
+     "baseline_minutes_per_task": 87.4,
+     "ai_minutes_per_task": 39.2
+    },
+    "estimated_time_value": 60164.16,
+    "scenarios": {
+     "conservative": {
+      "name": "conservative",
+      "gross_benefit": 5137.1,
+      "total_cost": 27967.82,
+      "net_benefit": -22830.73,
+      "roi_pct": -81.6,
+      "includes_estimates": false
+     },
+     "expected": {
+      "name": "expected",
+      "gross_benefit": 7338.71,
+      "total_cost": 25425.3,
+      "net_benefit": -18086.59,
+      "roi_pct": -71.1,
+      "includes_estimates": false
+     },
+     "optimistic": {
+      "name": "optimistic",
+      "gross_benefit": 37420.79,
+      "total_cost": 25425.3,
+      "net_benefit": 11995.49,
+      "roi_pct": 47.2,
+      "includes_estimates": true
+     }
+    }
+   },
+   "comparison": {
+    "use_case": "marketing_content",
+    "study_design": "control_group",
+    "causal": true,
+    "ai": {
+     "n": 1498,
+     "first_day": "2026-07-03",
+     "last_day": "2026-09-30",
+     "mean_minutes": 39.2,
+     "mean_total_minutes": 63.78,
+     "success_rate": 0.8945,
+     "error_rate": 0.0714,
+     "rework_rate": 0.3465,
+     "quality": 0.7379,
+     "csat": null,
+     "tasks_per_hour": 0.941,
+     "labour_cost": 79623.04,
+     "ai_cost": 5106.27,
+     "total_cost": 84729.31,
+     "cost_per_completed_task": 63.23
+    },
+    "non_ai": {
+     "n": 737,
+     "first_day": "2026-07-03",
+     "last_day": "2026-09-30",
+     "mean_minutes": 87.4,
+     "mean_total_minutes": 95.7,
+     "success_rate": 0.9417,
+     "error_rate": 0.0353,
+     "rework_rate": 0.1316,
+     "quality": 0.8384,
+     "csat": null,
+     "tasks_per_hour": 0.627,
+     "labour_cost": 58777.07,
+     "ai_cost": 0.0,
+     "total_cost": 58777.07,
+     "cost_per_completed_task": 84.69
+    },
+    "differences": {
+     "total_minutes": {
+      "estimate": -31.92,
+      "low": -38.02,
+      "high": -25.82,
+      "significant": true
+     },
+     "quality": {
+      "estimate": -0.1005,
+      "low": -0.1086,
+      "high": -0.0925,
+      "significant": true
+     },
+     "success_rate": {
+      "estimate": -0.0471,
+      "low": -0.0701,
+      "high": -0.0241,
+      "significant": true
+     },
+     "error_rate": {
+      "estimate": 0.0362,
+      "low": 0.0175,
+      "high": 0.0548,
+      "significant": true
+     }
+    },
+    "cost_per_task_delta": -21.46,
+    "estimated_net_benefit": 28759.55,
+    "segments": [
+     {
+      "task_type": "long_form_article",
+      "n_ai": 667,
+      "n_non_ai": 327,
+      "total_minutes": {
+       "estimate": -54.13,
+       "low": -58.63,
+       "high": -49.63,
+       "significant": true
+      },
+      "quality": {
+       "estimate": -0.2408,
+       "low": -0.2492,
+       "high": -0.2324,
+       "significant": true
+      },
+      "favourable": false
+     },
+     {
+      "task_type": "social_post",
+      "n_ai": 831,
+      "n_non_ai": 410,
+      "total_minutes": {
+       "estimate": -14.49,
+       "low": -15.39,
+       "high": -13.59,
+       "significant": true
+      },
+      "quality": {
+       "estimate": 0.012,
+       "low": 0.006,
+       "high": 0.0181,
+       "significant": true
+      },
+      "favourable": true
+     }
+    ],
+    "decision": "selective",
+    "reasons": [
+     "quality_declined",
+     "favourable_segments:social_post"
+    ]
+   }
+  },
+  "invoice_matching": {
+   "use_case": "invoice_matching",
+   "name_key": "use_case.invoice_matching",
+   "department": "finance_operations",
+   "task_complexity": "standard",
+   "study_design": "observational",
+   "data_source": "Pilot spreadsheet, self-reported",
+   "measurement_period": {
+    "start": "2026-07-03",
+    "end": "2026-09-30"
+   },
+   "documented_baseline_minutes": 20.0,
+   "labour_rate": 48.0,
+   "tasks_ai": 11,
+   "quality_ai": 0.8352,
+   "success_rate_ai": 1.0,
+   "roi": {
+    "status": "insufficient_evidence",
+    "reasons": [
+     "no_supported_benefits",
+     "sample_too_small"
+    ],
+    "period_days": 90,
+    "costs": {
+     "model_usage": 1.06,
+     "subscription": 0.0,
+     "infrastructure": 0.0,
+     "implementation": 6000.0,
+     "maintenance": 0.0,
+     "human_review": 19.71,
+     "rework": 4.21,
+     "other_operating": 0.0,
+     "total": 6024.98
+    },
+    "one_off_cost": 6000.0,
+    "recurring_cost": 24.98,
+    "benefits": {
+     "verified_savings": 0.0,
+     "supported_contribution": 0.0,
+     "supported_cost_avoidance": 0.0,
+     "verified_component": 0.0,
+     "supported_component": 0.0,
+     "gross": 0.0,
+     "estimated_excluded": 8806.45,
+     "counted": [],
+     "excluded": [
+      {
+       "id": "ben_008",
+       "use_case": "invoice_matching",
+       "category": "financial_savings",
+       "amount": 2806.45,
+       "verification_status": "estimated",
+       "evidence_key": "invoice_matching:fte_time:2026-07",
+       "period_start": "2026-07-03",
+       "period_end": "2026-07-31",
+       "confidence": 0.3,
+       "source": "Pilot owner estimate",
+       "reason": "estimate_only"
+      },
+      {
+       "id": "ben_016",
+       "use_case": "invoice_matching",
+       "category": "financial_savings",
+       "amount": 3000.0,
+       "verification_status": "estimated",
+       "evidence_key": "invoice_matching:fte_time:2026-08",
+       "period_start": "2026-08-01",
+       "period_end": "2026-08-31",
+       "confidence": 0.3,
+       "source": "Pilot owner estimate",
+       "reason": "estimate_only"
+      },
+      {
+       "id": "ben_024",
+       "use_case": "invoice_matching",
+       "category": "financial_savings",
+       "amount": 3000.0,
+       "verification_status": "estimated",
+       "evidence_key": "invoice_matching:fte_time:2026-09",
+       "period_start": "2026-09-01",
+       "period_end": "2026-09-30",
+       "confidence": 0.3,
+       "source": "Pilot owner estimate",
+       "reason": "estimate_only"
+      }
+     ]
+    },
+    "gross_benefit": 0.0,
+    "net_benefit": null,
+    "roi_pct": null,
+    "benefit_cost_ratio": null,
+    "cost_per_successful_task": 547.73,
+    "successful_tasks": 11,
+    "break_even_tasks": null,
+    "payback_months": null,
+    "hours": {
+     "gross": 1.5,
+     "net": 1.0,
+     "baseline_source": "documented_baseline",
+     "baseline_minutes_per_task": 20.0,
+     "ai_minutes_per_task": 11.74
+    },
+    "estimated_time_value": 72.69,
+    "scenarios": {}
+   },
+   "comparison": {
+    "use_case": "invoice_matching",
+    "study_design": "observational",
+    "causal": false,
+    "ai": {
+     "n": 11,
+     "first_day": "2026-07-20",
+     "last_day": "2026-09-02",
+     "mean_minutes": 11.74,
+     "mean_total_minutes": 14.46,
+     "success_rate": 1.0,
+     "error_rate": 0.0,
+     "rework_rate": 0.0909,
+     "quality": 0.8352,
+     "csat": null,
+     "tasks_per_hour": 4.15,
+     "labour_cost": 127.23,
+     "ai_cost": 6001.06,
+     "total_cost": 6128.29,
+     "cost_per_completed_task": 557.12
+    },
+    "non_ai": {
+     "n": 0,
+     "first_day": null,
+     "last_day": null,
+     "mean_minutes": null,
+     "mean_total_minutes": null,
+     "success_rate": null,
+     "error_rate": null,
+     "rework_rate": null,
+     "quality": null,
+     "csat": null,
+     "tasks_per_hour": null,
+     "labour_cost": 0.0,
+     "ai_cost": 0.0,
+     "total_cost": 0.0,
+     "cost_per_completed_task": null
+    },
+    "differences": {
+     "total_minutes": {
+      "estimate": null,
+      "low": null,
+      "high": null,
+      "significant": false
+     },
+     "quality": {
+      "estimate": null,
+      "low": null,
+      "high": null,
+      "significant": false
+     },
+     "success_rate": {
+      "estimate": null,
+      "low": null,
+      "high": null,
+      "significant": false
+     },
+     "error_rate": {
+      "estimate": null,
+      "low": null,
+      "high": null,
+      "significant": false
+     }
+    },
+    "cost_per_task_delta": null,
+    "estimated_net_benefit": null,
+    "segments": [
+     {
+      "task_type": "standard",
+      "n_ai": 11,
+      "n_non_ai": 0,
+      "total_minutes": {
+       "estimate": null,
+       "low": null,
+       "high": null,
+       "significant": false
+      },
+      "quality": {
+       "estimate": null,
+       "low": null,
+       "high": null,
+       "significant": false
+      },
+      "favourable": false
+     }
+    ],
+    "decision": "experiment",
+    "reasons": [
+     "sample_too_small",
+     "no_control_group"
+    ]
+   }
+  }
+ },
+ "recommendations": {
+  "rows": [
+   {
+    "rule_id": "budget_exceeded",
+    "message_key": "recommendation.budget_exceeded",
+    "severity": "critical",
+    "scope_type": "budget",
+    "scope_id": "sales",
+    "metrics": {
+     "budget": 1400.0,
+     "spent": 1633.2664,
+     "utilization": 1.1666,
+     "forecast": 1633.2664,
+     "forecast_utilization": 1.1666
+    },
+    "projected_monthly_saving": null,
+    "is_estimate": false
+   },
+   {
+    "rule_id": "budget_warning",
+    "message_key": "recommendation.budget_warning",
+    "severity": "warning",
+    "scope_type": "budget",
+    "scope_id": "engineering",
+    "metrics": {
+     "budget": 2000.0,
+     "spent": 1638.4659,
+     "utilization": 0.8192,
+     "forecast": 1638.4659,
+     "forecast_utilization": 0.8192
+    },
+    "projected_monthly_saving": null,
+    "is_estimate": false
+   },
+   {
+    "rule_id": "budget_warning",
+    "message_key": "recommendation.budget_warning",
+    "severity": "warning",
+    "scope_type": "budget",
+    "scope_id": "marketing",
+    "metrics": {
+     "budget": 300.0,
+     "spent": 271.4577,
+     "utilization": 0.9049,
+     "forecast": 271.4577,
+     "forecast_utilization": 0.9049
+    },
+    "projected_monthly_saving": null,
+    "is_estimate": false
+   },
+   {
+    "rule_id": "high_tokens_low_quality",
+    "message_key": "recommendation.high_tokens_low_quality",
+    "severity": "warning",
+    "scope_type": "use_case",
+    "scope_id": "marketing_content",
+    "metrics": {
+     "tokens_per_task": 139089.3912,
+     "org_median_tokens_per_task": 139089.3912,
+     "quality": 0.7379,
+     "quality_floor": 0.75
+    },
+    "projected_monthly_saving": null,
+    "is_estimate": false
+   },
+   {
+    "rule_id": "restrict_to_task_types",
+    "message_key": "recommendation.restrict_to_task_types",
+    "severity": "warning",
+    "scope_type": "use_case",
+    "scope_id": "marketing_content",
+    "metrics": {
+     "decision": "selective",
+     "reasons": [
+      "quality_declined",
+      "favourable_segments:social_post"
+     ],
+     "cost_per_task_delta": -21.4623,
+     "quality_delta": -0.1005,
+     "roi_pct": -71.1362
+    },
+    "projected_monthly_saving": null,
+    "is_estimate": false
+   },
+   {
+    "rule_id": "review_erasing_gains",
+    "message_key": "recommendation.review_erasing_gains",
+    "severity": "warning",
+    "scope_type": "use_case",
+    "scope_id": "sales_outreach",
+    "metrics": {
+     "minutes_saved_per_task": 3.0359,
+     "extra_review_rework_minutes": 2.5711,
+     "erosion_ratio": 0.8469
+    },
+    "projected_monthly_saving": null,
+    "is_estimate": false
+   },
+   {
+    "rule_id": "spend_anomaly",
+    "message_key": "recommendation.spend_anomaly",
+    "severity": "warning",
+    "scope_type": "organization",
+    "scope_id": "2026-09-12",
+    "metrics": {
+     "date": "2026-09-12",
+     "spend": 659.8453,
+     "zscore": 7.5119,
+     "typical_daily_spend": 96.2002
+    },
+    "projected_monthly_saving": null,
+    "is_estimate": false
+   },
+   {
+    "rule_id": "spend_without_improvement",
+    "message_key": "recommendation.spend_without_improvement",
+    "severity": "warning",
+    "scope_type": "department",
+    "scope_id": "sales",
+    "metrics": {
+     "spend_prior_30d": 678.2976,
+     "spend_recent_30d": 1633.2664,
+     "spend_growth": 1.4079,
+     "success_rate_prior": 0.8933,
+     "success_rate_recent": 0.9018,
+     "quality_prior": 0.7991,
+     "quality_recent": 0.7989
+    },
+    "projected_monthly_saving": null,
+    "is_estimate": false
+   },
+   {
+    "rule_id": "unallocated_usage",
+    "message_key": "recommendation.unallocated_usage",
+    "severity": "warning",
+    "scope_type": "organization",
+    "scope_id": "organization",
+    "metrics": {
+     "unallocated_spend": 2544.5276,
+     "total_spend": 8658.0191,
+     "share": 0.2939
+    },
+    "projected_monthly_saving": null,
+    "is_estimate": false
+   },
+   {
+    "rule_id": "cheaper_model",
+    "message_key": "recommendation.cheaper_model",
+    "severity": "opportunity",
+    "scope_type": "use_case",
+    "scope_id": "sales_outreach",
+    "metrics": {
+     "current_model": "openai/gpt-demo-large",
+     "suggested_model": "openai/gpt-demo-mini",
+     "current_spend": 2877.885,
+     "repriced_spend": 206.8309,
+     "task_complexity": "simple",
+     "assumption": "same_token_volume_and_quality_to_be_validated"
+    },
+    "projected_monthly_saving": 903.34,
+    "is_estimate": true
+   },
+   {
+    "rule_id": "expansion_candidate",
+    "message_key": "recommendation.expansion_candidate",
+    "severity": "opportunity",
+    "scope_type": "use_case",
+    "scope_id": "code_review",
+    "metrics": {
+     "decision": "continue",
+     "reasons": [
+      "positive_measured_value"
+     ],
+     "cost_per_task_delta": -20.9115,
+     "quality_delta": 0.0088,
+     "roi_pct": 70.7455,
+     "net_benefit": 11554.5496
+    },
+    "projected_monthly_saving": 3907.68,
+    "is_estimate": true
+   },
+   {
+    "rule_id": "expansion_candidate",
+    "message_key": "recommendation.expansion_candidate",
+    "severity": "opportunity",
+    "scope_type": "use_case",
+    "scope_id": "support_triage",
+    "metrics": {
+     "decision": "continue",
+     "reasons": [
+      "positive_measured_value"
+     ],
+     "cost_per_task_delta": -2.6847,
+     "quality_delta": 0.0103,
+     "roi_pct": 238.0638,
+     "net_benefit": 41343.222
+    },
+    "projected_monthly_saving": 13982.05,
+    "is_estimate": true
+   },
+   {
+    "rule_id": "needs_outcome_tracking",
+    "message_key": "recommendation.needs_outcome_tracking",
+    "severity": "info",
+    "scope_type": "use_case",
+    "scope_id": "invoice_matching",
+    "metrics": {
+     "total_cost": 6024.9756,
+     "reasons": [
+      "no_supported_benefits",
+      "sample_too_small"
+     ],
+     "ai_tasks": 11
+    },
+    "projected_monthly_saving": null,
+    "is_estimate": false
+   }
+  ]
+ },
+ "assumptions": {
+  "min_sample_size": 30,
+  "min_measurement_days": 14,
+  "conservative_benefit_haircut": 0.3,
+  "conservative_cost_contingency": 0.1,
+  "optimistic_estimated_benefit_share": 0.5,
+  "quality_tolerance": 0.03,
+  "budget_warning_ratio": 0.8,
+  "review_erosion_ratio": 0.7,
+  "spend_growth_alert_ratio": 0.25,
+  "anomaly_sigma": 3.0
+ }
+}

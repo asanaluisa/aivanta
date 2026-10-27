@@ -1,0 +1,41 @@
+{
+  "data": [
+    {
+      "starting_at": "2026-09-27T00:00:00Z",
+      "ending_at": "2026-09-28T00:00:00Z",
+      "results": [
+        {
+          "uncached_input_tokens": 950000,
+          "cache_creation": {"ephemeral_1h_input_tokens": 0, "ephemeral_5m_input_tokens": 50000},
+          "cache_read_input_tokens": 1200000,
+          "output_tokens": 61000,
+          "server_tool_use": {"web_search_requests": 0},
+          "api_key_id": "apikey_support_bot",
+          "workspace_id": "wrkspc_support",
+          "model": "claude-demo-compact",
+          "service_tier": "standard",
+          "context_window": "0-200k"
+        },
+        {
+          "uncached_input_tokens": 400000,
+          "cache_creation": null,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 22000,
+          "api_key_id": "apikey_eng_cli",
+          "workspace_id": "wrkspc_engineering",
+          "model": "claude-demo-advanced",
+          "service_tier": "standard"
+        },
+        {
+          "uncached_input_tokens": 1000,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 10,
+          "workspace_id": "wrkspc_engineering",
+          "model": "claude-not-priced"
+        }
+      ]
+    }
+  ],
+  "has_more": false,
+  "next_page": null
+}

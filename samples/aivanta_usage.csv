@@ -1,0 +1,6 @@
+event_id,occurred_at,provider,model,input_tokens,output_tokens,cached_input_tokens,request_count,retries,status,latency_ms,user_id,department_id,use_case_id,task_id
+csv-0001,2026-09-28T10:02:00Z,anthropic,claude-demo-compact,14200,460,8500,2,0,success,910,u_customer_support_04,customer_support,support_triage,
+csv-0002,2026-09-28T10:05:00Z,openai,gpt-demo-large,98000,3300,44000,4,1,success,2650,u_engineering_07,engineering,code_review,
+csv-0003,2026-09-28T10:09:00Z,google,gemini-demo-flash,3000,200,,1,0,error,400,,,,
+csv-0004,2026-09-28T10:11:00Z,openai,gpt-demo-large,500,20,900,1,0,success,,,,,
+csv-0005,2026-09-28T10:15:00Z,mistral,some-model,100,10,0,1,0,success,,,,,

@@ -1,0 +1,5 @@
+{"timestamp": "2026-09-27T09:14:03Z", "responseId": "resp-001", "modelVersion": "gemini-demo-pro", "usageMetadata": {"promptTokenCount": 41000, "candidatesTokenCount": 3900, "cachedContentTokenCount": 6000, "thoughtsTokenCount": 800, "totalTokenCount": 45700}, "labels": {"use_case": "marketing_content", "user": "u_marketing_03"}, "latencyMs": 8300}
+{"timestamp": "2026-09-27T09:20:41Z", "responseId": "resp-002", "modelVersion": "gemini-demo-flash", "usageMetadata": {"promptTokenCount": 2200, "candidatesTokenCount": 180, "totalTokenCount": 2380}, "labels": {"use_case": "unknown_prototype"}, "latencyMs": 640, "retries": 1}
+{"timestamp": "2026-09-27T09:31:12Z", "responseId": "resp-003", "modelVersion": "gemini-demo-pro", "usageMetadata": {"promptTokenCount": 39000, "candidatesTokenCount": 0, "totalTokenCount": 39000}, "labels": {"use_case": "marketing_content", "user": "u_marketing_05"}, "error": {"code": 500, "message": "internal"}, "latencyMs": 30000}
+not json at all
+{"timestamp": "2026-09-27T09:40:00Z", "responseId": "resp-005", "modelVersion": "gemini-demo-pro", "labels": {"use_case": "marketing_content"}}
